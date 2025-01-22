@@ -61,7 +61,7 @@ def plvr_crawler(year, season, save_to_gcs=False):
                             )
                         else:
                             # Save locally
-                            local_path = f"plvr/{year}Q{season}"
+                            local_path = f"data/plvr/{year}Q{season}"
                             save_locally(
                                 local_path, file_info.filename, converted_content
                             )
