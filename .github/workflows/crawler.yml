@@ -29,4 +29,4 @@ jobs:
     # Step 4: Run the crawler script
     - name: Run the web crawler
       run: |
-        python web_crawler/main.py --save_to_gcs true
+        python web_crawler/main.py --save_to_gcs
