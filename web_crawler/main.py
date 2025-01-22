@@ -1,4 +1,5 @@
 import argparse
+import time
 from datetime import datetime
 
 from utils import check_existing_folder, plvr_crawler
@@ -53,6 +54,7 @@ def main():
             if season > 4:
                 season = 1
                 year += 1
+            time.sleep(10)
 
 
 if __name__ == "__main__":
