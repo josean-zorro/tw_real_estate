@@ -69,25 +69,29 @@ def plvr_crawler(year, season, save_to_gcs=False):
         print(f"Failed to download file: {response.status_code}")
 
 
-def get_last_crawled_season():
-    """Determine the latest crawled year and season based on existing folders."""
-    if not os.path.exists("data"):
-        return None, None
+def check_existing_folder(
+    folder_name="plvr", save_to_gcs=False, bucket_name="tw-real-estate", prefix="data"
+):
+    """
+    Check if a specific folder (year-season) exists either locally or in GCS.
 
-    existing_folders = [
-        folder
-        for folder in os.listdir("data")
-        if os.path.isdir(os.path.join("data", folder)) and "-" in folder
-    ]
-    if not existing_folders:
-        return None, None
+    Args:
+        folder_name (str): The folder name to check (e.g., "2024-Q1").
+        save_to_gcs (bool): Whether to check in Google Cloud Storage (GCS).
+        bucket_name (str): The GCS bucket name (only used if save_to_gcs=True).
+        prefix (str): The prefix path in GCS (only used if save_to_gcs=True).
 
-    # Extract year-season pairs and find the latest
-    existing_seasons = sorted(
-        [
-            (int(folder.split("-")[0]), int(folder.split("-")[1][1:]))
-            for folder in existing_folders
-        ],
-        reverse=True,
-    )
-    return existing_seasons[0]
+    Returns:
+        bool: True if the folder exists, False otherwise.
+    """
+    if save_to_gcs:
+        # Check in GCS
+        storage_client = storage.Client()
+        bucket = storage_client.bucket(bucket_name)
+        gcs_prefix = f"{prefix}/{folder_name}/"
+        blobs = list(bucket.list_blobs(prefix=gcs_prefix))
+        return len(blobs) > 0  # Folder exists if there are any blobs under this prefix
+    else:
+        # Check locally
+        local_path = os.path.join(prefix, folder_name)
+        return os.path.exists(local_path) and os.path.isdir(local_path)
