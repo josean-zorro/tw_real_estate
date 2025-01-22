@@ -48,4 +48,4 @@ def plvr_crawler(year, season):
         print(f"Failed to download file: {response.status_code}")
 
 
-# plvr_crawler(111, 2)
+plvr_crawler(111, 2)
