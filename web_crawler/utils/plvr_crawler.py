@@ -67,6 +67,7 @@ def plvr_crawler(year, season, save_to_gcs=False):
                             )
     else:
         print(f"Failed to download file: {response.status_code}")
+    response.close()
 
 
 def check_existing_folder(
