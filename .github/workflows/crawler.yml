@@ -21,11 +21,11 @@ jobs:
         python-version: "3.12"  # Specify the Python version you are using
 
     # Step3: 
-    - name: Authenticate to Google Cloud
-      env:
-        GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/gcp-key.json
-      run: |
-        echo "${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}" > $GOOGLE_APPLICATION_CREDENTIALS
+    - id: auth
+      uses: google-github-actions/auth@v2.0.0  
+      with:
+        workload_identity_provider: 'projects/1071514067975/locations/global/workloadIdentityPools/github-action-tw-real-estate/providers/github'
+        service_account: 'github-tw-real-estate@x-ripple-279214.iam.gserviceaccount.com'
 
     # Step 4: Install dependencies
     - name: Install dependencies
