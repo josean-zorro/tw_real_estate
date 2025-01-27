@@ -89,7 +89,7 @@ def check_existing_folder(
         # Check in GCS
         storage_client = storage.Client()
         bucket = storage_client.bucket(bucket_name)
-        gcs_prefix = f"{prefix}/{folder_name}/"
+        gcs_prefix = f"{folder_name}/"
         blobs = list(bucket.list_blobs(prefix=gcs_prefix))
         return len(blobs) > 0  # Folder exists if there are any blobs under this prefix
     else:

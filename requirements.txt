@@ -1,3 +1,4 @@
 dbt-postgres==1.8.0
 requests==2.32.3
+google-cloud-storage
 
