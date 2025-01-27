@@ -28,8 +28,8 @@ jobs:
     - id: auth
       uses: google-github-actions/auth@v2.0.0  
       with:
-        workload_identity_provider: 'projects/1071514067975/locations/global/workloadIdentityPools/github-action-tw-real-estate/providers/github'
-        service_account: 'github-tw-real-estate@x-ripple-279214.iam.gserviceaccount.com'
+        workload_identity_provider: '${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}'
+        service_account: '${{ secrets.GCP_SERVICE_ACCOUNT }}'
 
     # Step 4: Install dependencies
     - name: Install dependencies
