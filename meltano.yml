@@ -5,3 +5,49 @@ environments:
 - name: dev
 - name: staging
 - name: prod
+plugins:
+  extractors:
+  - name: tap-spreadsheets-anywhere
+    variant: ets
+    pip_url: git+https://github.com/ets/tap-spreadsheets-anywhere.git
+    config:
+      tables:
+      - path: gs://tw-real-estate
+        name: house_transaction
+        pattern: plvr/2013Q4/a_lvr_land_a.csv
+        start_date: '2017-05-01T00:00:00Z'
+        format: csv
+        key_properties: []
+
+  loaders:
+  - name: target-csv
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/target-csv.git
+  - name: target-bigquery
+    variant: z3z1ma
+    pip_url: git+https://github.com/z3z1ma/target-bigquery.git
+    config:
+      batch_size: 500
+      cluster_on_key_properties: false
+      column_name_transforms:
+        add_underscore_when_invalid: false
+        lower: true
+        quote: true
+        replace_period_with_underscore: true
+        snake_case: false
+      dataset: plvr
+      dedupe_before_upsert: false
+      denormalized: true
+      fail_fast: true
+      flattening_enabled: false
+      flattening_max_depth: 2
+      generate_view: false
+      location: US
+      method: batch_job
+      options:
+        max_workers: 4
+        process_pool: false
+        storage_write_batch_mode: false
+      partition_granularity: month
+      project: x-ripple-279214
+      timeout: 600
