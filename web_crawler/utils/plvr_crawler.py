@@ -49,6 +49,8 @@ def plvr_crawler(year, season, save_to_gcs=False):
                         # Save the CSV file to disk
                         content = csv_file.read().decode("utf-8")
                         converted_content = full_to_half_width(content)
+                        # Remove first line
+                        converted_content = "\n".join(converted_content.split("\n")[1:])
                         if save_to_gcs:
                             # Save to GCS
                             destination_blob_name = (
