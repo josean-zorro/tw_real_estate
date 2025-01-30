@@ -23,4 +23,12 @@ clean-targets:
 - dbt_packages
 - logs
 models:
-  my_meltano_project: null
+  house_and_renting: 
+    models:
+      staging:
+        +materialized: view
+
+  elementary:
+    +schema: "elementary"
+    # When developing in local environemnt, no need to run elementary.
+    +enabled: "{{ target.name != 'dev' }}"
