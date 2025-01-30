@@ -39,7 +39,9 @@ jobs:
           TARGET_BIGQUERY_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
           MELTANO_DATABASE_URI: sqlite:////github/workspace/meltano.db
         with:
-          args: meltano --environment=prod el tap-spreadsheets-anywhere target-bigquery --state-id=plvr_el # job_id required to use incremental state, can be anything
+          args: |
+            export MELTANO_ENVIRONMENT=prod
+            meltano el tap-spreadsheets-anywhere target-bigquery --state-id=plvr_el # job_id required to use incremental state, can be anything
       # Upload the sqlite database containing incremental, bookmark state
       - name: Upload SQLite database artifact
         if: always() # Always run this step even if the prior failed
