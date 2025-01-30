@@ -2,21 +2,29 @@ version: 1
 default_environment: dev
 project_id: fcbb15af-04c1-4834-aa1f-bf87a48d8220
 environments:
-  - name: dev
-    config:
-      plugins:
-        loaders:
-          - name: target-bigquery
-            config:
-              dataset: plvr_dev
-  - name: staging
-  - name: prod
-    config:
-      plugins:
-        loaders:
-          - name: target-bigquery
-            config:
-              dataset: plvr
+- name: dev
+  config:
+    plugins:
+      loaders:
+      - name: target-bigquery
+        config:
+          dataset: plvr_dev
+      transformers:
+      - name: dbt-bigquery:
+        config:
+          dataset: plvr_dev
+- name: staging
+- name: prod
+  config:
+    plugins:
+      loaders:
+      - name: target-bigquery
+        config:
+          dataset: plvr
+      transformers:
+      - name: dbt-bigquery:
+        config:
+          dataset: plvr
 
 plugins:
   extractors:
@@ -67,10 +75,18 @@ plugins:
       project: ${TARGET_BIGQUERY_PROJECT_ID}
       timeout: 600
 
+  transformers:
+  - name: dbt-bigquery
+    variant: dbt-labs
+    pip_url: dbt-core~=1.3.0 dbt-bigquery~=1.3.0
+    config:
+      auth_method: oauth
+      dataset: plvr
+      project: ${TARGET_BIGQUERY_PROJECT_ID}
   utilities:
   - name: crawler
     namespace: crawler
     commands:
       plvr_crawler:
-        executable: python
         args: web_crawler/main.py --save_to_gcs
+        executable: python
