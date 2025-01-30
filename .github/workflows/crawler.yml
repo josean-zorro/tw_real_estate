@@ -12,6 +12,7 @@ jobs:
     permissions:
       contents: 'read'
       id-token: 'write'
+      actions: 'read'
 
     steps:
     # Step 1: Checkout the repository
