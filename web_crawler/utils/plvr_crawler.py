@@ -1,9 +1,35 @@
 import io
 import os
 import zipfile
+from datetime import date, timedelta
 
+import pandas as pd
 import requests
 from google.cloud import storage
+
+
+def get_past_quarter_dates_ending_with_1():
+    today = date.today()
+    year = today.year
+
+    # Determine the current quarter
+    quarter_start_month = ((today.month - 1) // 3) * 3 + 1
+
+    # Define the start date of the quarter
+    start_date = date(year, quarter_start_month, 1)
+
+    # Collect all past dates ending in "1"
+    dates = [
+        start_date + timedelta(days=i)
+        for i in range((today - start_date).days + 1)
+        if (start_date + timedelta(days=i)).day % 10 == 1
+    ]
+
+    # Exclude the last one before today
+    if dates:
+        dates.pop()  # Remove the last date in the list
+
+    return dates
 
 
 def full_to_half_width(s):
@@ -29,7 +55,7 @@ def save_locally(local_path, filename, content):
     print(f"Saved locally to {file_path}")
 
 
-def plvr_crawler(year, season, save_to_gcs=False):
+def plvr_historical_crawler(year, season, save_to_gcs=False):
     # Tranlate to Taiwanese year
     taiwan_year = year - 1911 if year > 1000 else year
     url = f"https://plvr.land.moi.gov.tw//DownloadSeason?season={taiwan_year}S{season}&type=zip&fileName=lvr_landcsv.zip"
@@ -72,6 +98,66 @@ def plvr_crawler(year, season, save_to_gcs=False):
     response.close()
 
 
+def plvr_this_quarter_crawler(save_to_gcs=False):
+    today = date.today()
+    year = today.year
+    quarter = (today.month - 1) // 3 + 1
+    base_url_zip = (
+        "http://plvr.land.moi.gov.tw/Download?type=zip&fileName=lvr_landcsv.zip"
+    )
+    base_url_history = (
+        "http://plvr.land.moi.gov.tw/DownloadHistory?type=history&fileName="
+    )
+
+    past_dates = get_past_quarter_dates_ending_with_1()
+    file_data_map = {}
+
+    for date_obj in past_dates:
+        date_str = f"{date_obj.year}{date_obj.month:02}{date_obj.day:02}"
+        history_url = f"{base_url_history}{date_str}"
+
+        for url in [base_url_zip, history_url]:
+            response = requests.get(url)
+
+            if response.status_code == 200:
+                with zipfile.ZipFile(io.BytesIO(response.content)) as z:
+                    for file_info in z.infolist():
+                        if file_info.filename.endswith(".csv"):
+                            with z.open(file_info) as csv_file:
+                                content = csv_file.read().decode("utf-8")
+                                converted_content = "\n".join(
+                                    content.split("\n")[1:]
+                                )  # Remove header
+
+                                df = pd.read_csv(io.StringIO(converted_content))
+                                if file_info.filename not in file_data_map:
+                                    file_data_map[file_info.filename] = [df]
+                                else:
+                                    file_data_map[file_info.filename].append(df)
+            else:
+                print(f"Failed to download from {url}: {response.status_code}")
+
+            response.close()
+
+    unioned_dir = f"data/plvr/{year}Q{quarter}/unioned"
+    os.makedirs(unioned_dir, exist_ok=True)
+
+    for filename, dfs in file_data_map.items():
+        unioned_df = pd.concat(dfs, ignore_index=True)
+        unioned_path = os.path.join(unioned_dir, filename)
+        print(f"Unioned file saved: {unioned_path}")
+
+        if save_to_gcs:
+            upload_to_gcs(
+                "tw-real-estate",
+                f"plvr/{year}Q{quarter}/{filename}",
+                unioned_df.to_csv(index=False),
+            )
+        else:
+            unioned_df.to_csv(unioned_path, index=False)
+        unioned_df.to_csv(unioned_path, index=False)
+
+
 def check_existing_folder(
     folder_name="plvr", save_to_gcs=False, bucket_name="tw-real-estate", prefix="data"
 ):
@@ -98,3 +184,6 @@ def check_existing_folder(
         # Check locally
         local_path = os.path.join(prefix, folder_name)
         return os.path.exists(local_path) and os.path.isdir(local_path)
+
+
+plvr_this_quarter_crawler()
