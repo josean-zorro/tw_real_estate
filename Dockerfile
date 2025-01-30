@@ -3,6 +3,7 @@ FROM meltano/meltano:v3.5-python3.8
 # Meltano project and install
 COPY . /project/
 RUN meltano install
+RUN meltano lock --update --all
 
 # GitHub actions sets the working directory to the repo root when running.
 # The entrypoint script sets the current directory to the meltano project and
