@@ -1,4 +1,4 @@
-FROM meltano/meltano:v3.5.4
+FROM meltano/meltano:v3.5-python3.8
 
 # Meltano project and install
 COPY . /project/
