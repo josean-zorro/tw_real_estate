@@ -10,9 +10,9 @@ environments:
         config:
           dataset: plvr_dev
       transformers:
-      - name: dbt-bigquery:
+      - name: dbt-bigquery
         config:
-          dataset: plvr_dev
+          dataset: house_and_renting_dev
 - name: staging
 - name: prod
   config:
@@ -22,9 +22,9 @@ environments:
         config:
           dataset: plvr
       transformers:
-      - name: dbt-bigquery:
+      - name: dbt-bigquery
         config:
-          dataset: plvr
+          dataset: house_and_renting
 
 plugins:
   extractors:
@@ -78,10 +78,9 @@ plugins:
   transformers:
   - name: dbt-bigquery
     variant: dbt-labs
-    pip_url: dbt-core~=1.3.0 dbt-bigquery~=1.3.0
+    pip_url: dbt-core~=1.8.0 dbt-bigquery~=1.8.0
     config:
       auth_method: oauth
-      dataset: plvr
       project: ${TARGET_BIGQUERY_PROJECT_ID}
   utilities:
   - name: crawler
