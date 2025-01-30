@@ -184,6 +184,3 @@ def check_existing_folder(
         # Check locally
         local_path = os.path.join(prefix, folder_name)
         return os.path.exists(local_path) and os.path.isdir(local_path)
-
-
-plvr_this_quarter_crawler()
