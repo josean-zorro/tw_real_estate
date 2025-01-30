@@ -67,11 +67,10 @@ plugins:
       project: ${TARGET_BIGQUERY_PROJECT_ID}
       timeout: 600
 
-
-utilities:
-- name: plvr_crawler
-  namespace: plvr_crawler
-  commands:
-    run_script:
-      executable: python
-      args: web_crawler/main.py
+  utilities:
+  - name: crawler
+    namespace: crawler
+    commands:
+      plvr_crawler:
+        executable: python
+        args: web_crawler/main.py --save_to_gcs
