@@ -41,9 +41,8 @@ jobs:
           MELTANO_ENVIRONMENT: prod
           PYTHONUNBUFFERED: 1
         with:
-          args: |
-            meltano run crawler:plvr_crawler
-            meltano el tap-spreadsheets-anywhere target-bigquery --state-id=plvr_el # job_id required to use incremental state, can be anything
+          args: meltano run crawler:plvr_crawler && meltano el tap-spreadsheets-anywhere target-bigquery --state-id=plvr_el # job_id required to use incremental state, can be anything
+
       # Upload the sqlite database containing incremental, bookmark state
       - name: Upload SQLite database artifact
         if: always() # Always run this step even if the prior failed
