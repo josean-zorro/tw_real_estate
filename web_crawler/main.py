@@ -56,7 +56,8 @@ def main():
         print("Existing data found. Performing incremental crawl.")
 
         # Crawl new data if applicable
-    print(f"Starting crawling for this period...")
+    print("Starting crawling for this period...")
+    plvr_historical_crawler(last_year, last_season, save_to_gcs=save_to_gcs)
     plvr_this_quarter_crawler(save_to_gcs=save_to_gcs)
 
 
