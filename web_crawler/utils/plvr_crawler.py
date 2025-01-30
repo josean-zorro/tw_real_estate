@@ -139,13 +139,13 @@ def plvr_this_quarter_crawler(save_to_gcs=False):
 
             response.close()
 
-    unioned_dir = f"data/plvr/{year}Q{quarter}/unioned"
+    unioned_dir = f"data/plvr/{year}Q{quarter}"
     os.makedirs(unioned_dir, exist_ok=True)
 
     for filename, dfs in file_data_map.items():
         unioned_df = pd.concat(dfs, ignore_index=True)
         unioned_path = os.path.join(unioned_dir, filename)
-        print(f"Unioned file saved: {unioned_path}")
+        print(f"Unioned file saved: {unioned_dir}")
 
         if save_to_gcs:
             upload_to_gcs(
