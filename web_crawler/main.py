@@ -2,7 +2,11 @@ import argparse
 import time
 from datetime import datetime
 
-from utils import check_existing_folder, plvr_crawler
+from utils import (
+    check_existing_folder,
+    plvr_historical_crawler,
+    plvr_this_quarter_crawler,
+)
 
 
 def main():
@@ -31,14 +35,7 @@ def main():
     last_year = current_year - 1 if current_season == 1 else current_year
     last_season = 4 if current_season == 1 else current_season
 
-    if incremental_run:
-        # Incremental run: Use current year and season as the last crawled
-        print("Existing data found. Performing incremental crawl.")
-
-        # Crawl new data if applicable
-        print(f"Starting from {last_year}-Q{last_season}...")
-        plvr_crawler(last_year, last_season, save_to_gcs=save_to_gcs)
-    else:
+    if not incremental_run:
         # First run: Start from 2013-Q1
         print("No existing data found. Performing historical crawl.")
         start_year = 2013
@@ -49,12 +46,18 @@ def main():
         )
         year, season = start_year, start_season
         while (year, season) <= (last_year, last_season):
-            plvr_crawler(year, season, save_to_gcs)
+            plvr_historical_crawler(year, season, save_to_gcs)
             season += 1
             if season > 4:
                 season = 1
                 year += 1
             time.sleep(10)
+    else:
+        print("Existing data found. Performing incremental crawl.")
+
+        # Crawl new data if applicable
+    print(f"Starting crawling for this period...")
+    plvr_this_quarter_crawler(save_to_gcs=save_to_gcs)
 
 
 if __name__ == "__main__":
