@@ -1,5 +1,5 @@
 with
-    source as (select * from {{ source("plvr", "house_transaction") }}),
+    source as (select * from {{ source("plvr", "land_building_park_transaction") }}),
 
     renamed as (
 
