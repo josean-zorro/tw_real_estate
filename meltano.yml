@@ -34,7 +34,7 @@ plugins:
     config:
       tables:
       - path: gs://tw-real-estate
-        name: house_transaction
+        name: land_building_parking_transaction
         pattern: plvr/2024Q4/a_lvr_land_a.csv
         start_date: '2017-05-01T00:00:00Z'
         format: csv
