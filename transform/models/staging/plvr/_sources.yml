@@ -4,7 +4,7 @@ sources:
   - name: plvr
     description: ""
     tables:
-      - name: house_transaction
+      - name: land_building_park_transaction
         description: ""
         columns:
           - name: the_villages_and_towns_urban_district
