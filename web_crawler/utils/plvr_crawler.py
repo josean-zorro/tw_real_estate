@@ -23,6 +23,7 @@ def get_past_quarter_dates_ending_with_1():
         start_date + timedelta(days=i)
         for i in range((today - start_date).days + 1)
         if (start_date + timedelta(days=i)).day % 10 == 1
+        and (start_date + timedelta(days=i)).day != 31
     ]
 
     # Exclude the last one before today
