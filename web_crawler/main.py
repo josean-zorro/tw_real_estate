@@ -53,11 +53,10 @@ def main():
                 year += 1
             time.sleep(10)
     else:
-        print("Existing data found. Performing incremental crawl.")
-
-        # Crawl new data if applicable
+        print("Existing data found. Crawling data for last season.")
+        plvr_historical_crawler(last_year, last_season, save_to_gcs=save_to_gcs)
+    # Crawl new data if applicable
     print("Starting crawling for this period...")
-    plvr_historical_crawler(last_year, last_season, save_to_gcs=save_to_gcs)
     plvr_this_quarter_crawler(save_to_gcs=save_to_gcs)
 
 
