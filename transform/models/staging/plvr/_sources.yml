@@ -1,0 +1,136 @@
+version: 2
+
+sources:
+  - name: plvr
+    description: ""
+    tables:
+      - name: land_building_park_transaction
+        description: ""
+        columns:
+          - name: the_villages_and_towns_urban_district
+            data_type: string
+            description: ""
+          - name: transaction_sign
+            data_type: string
+            description: ""
+          - name: land_sector_position_building_sector_house_number_plate
+            data_type: string
+            description: ""
+          - name: land_shifting_total_area_square_meter
+            data_type: float64
+            description: ""
+          - name: the_use_zoning_or_compiles_and_checks
+            data_type: string
+            description: ""
+          - name: the_nonmetropolis_land_use_district
+            data_type: string
+            description: ""
+          - name: nonmetropolis_land_use
+            data_type: string
+            description: ""
+          - name: transaction_year_month_and_day
+            data_type: int64
+            description: ""
+          - name: transaction_pen_number
+            data_type: string
+            description: ""
+          - name: shifting_level
+            data_type: string
+            description: ""
+          - name: total_floor_number
+            data_type: string
+            description: ""
+          - name: building_state
+            data_type: string
+            description: ""
+          - name: main_use
+            data_type: string
+            description: ""
+          - name: main_building_materials
+            data_type: string
+            description: ""
+          - name: construction_to_complete_the_years
+            data_type: int64
+            description: ""
+          - name: building_shifting_total_area
+            data_type: float64
+            description: ""
+          - name: building_present_situation_pattern_room
+            data_type: int64
+            description: ""
+          - name: building_present_situation_pattern_hall
+            data_type: int64
+            description: ""
+          - name: building_present_situation_pattern_health
+            data_type: int64
+            description: ""
+          - name: building_present_situation_pattern_compartmented
+            data_type: string
+            description: ""
+          - name: whether_there_is_manages_the_organization
+            data_type: string
+            description: ""
+          - name: total_price_ntd
+            data_type: int64
+            description: ""
+          - name: the_unit_price_ntd_square_meter
+            data_type: int64
+            description: ""
+          - name: the_berth_category
+            data_type: string
+            description: ""
+          - name: berth_shifting_total_area_square_meter
+            data_type: float64
+            description: ""
+          - name: the_berth_total_price_ntd
+            data_type: int64
+            description: ""
+          - name: the_note
+            data_type: string
+            description: ""
+          - name: serial_number
+            data_type: string
+            description: ""
+          - name: main_building_area
+            data_type: float64
+            description: ""
+          - name: auxiliary_building_area
+            data_type: float64
+            description: ""
+          - name: balcony_area
+            data_type: float64
+            description: ""
+          - name: elevator
+            data_type: string
+            description: ""
+          - name: transaction_number
+            data_type: int64
+            description: ""
+          - name: _smart_source_bucket
+            data_type: string
+            description: ""
+          - name: _smart_source_file
+            data_type: string
+            description: ""
+          - name: _smart_source_lineno
+            data_type: int64
+            description: ""
+          - name: _sdc_received_at
+            data_type: timestamp
+            description: ""
+          - name: _sdc_deleted_at
+            data_type: timestamp
+            description: ""
+          - name: _sdc_batched_at
+            data_type: timestamp
+            description: ""
+          - name: _sdc_extracted_at
+            data_type: timestamp
+            description: ""
+          - name: _sdc_sequence
+            data_type: int64
+            description: ""
+          - name: _sdc_table_version
+            data_type: int64
+            description: ""
+
