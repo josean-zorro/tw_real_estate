@@ -42,7 +42,7 @@ jobs:
           PYTHONUNBUFFERED: 1
         with:
           args: |
-            meltano invoke dbt-bigquery:build
+            meltano invoke dbt-bigquery:deps&&meltano invoke dbt-bigquery:build
       # Upload the sqlite database containing incremental, bookmark state
       - name: Upload SQLite database artifact
         if: always() # Always run this step even if the prior failed
