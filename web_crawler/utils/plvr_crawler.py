@@ -112,34 +112,44 @@ def plvr_this_quarter_crawler(save_to_gcs=False):
 
     past_dates = get_past_quarter_dates_ending_with_1()
     file_data_map = {}
+    response = requests.get(base_url_zip)
+    if response.status_code == 200:
+        with zipfile.ZipFile(io.BytesIO(response.content)) as z:
+            for file_info in z.infolist():
+                if file_info.filename.endswith(".csv"):
+                    with z.open(file_info) as csv_file:
+                        content = csv_file.read().decode("utf-8")
+                        # Convert full-width to half-width characters if needed
+                        converted_content = full_to_half_width(content)
+                        # Remove header if desired
+                        processed_content = "\n".join(converted_content.split("\n")[1:])
+                        df = pd.read_csv(io.StringIO(processed_content))
+                        # Add the DataFrame under its filename key
+                        file_data_map.setdefault(file_info.filename, []).append(df)
+    else:
+        print(f"Failed to download from {base_url_zip}: {response.status_code}")
+    response.close()
 
+    # === Process the historical files for each date ===
     for date_obj in past_dates:
         date_str = f"{date_obj.year}{date_obj.month:02}{date_obj.day:02}"
         history_url = f"{base_url_history}{date_str}"
-
-        for url in [base_url_zip, history_url]:
-            response = requests.get(url)
-
-            if response.status_code == 200:
-                with zipfile.ZipFile(io.BytesIO(response.content)) as z:
-                    for file_info in z.infolist():
-                        if file_info.filename.endswith(".csv"):
-                            with z.open(file_info) as csv_file:
-                                content = csv_file.read().decode("utf-8")
-                                converted_content = full_to_half_width(content)
-                                converted_content = "\n".join(
-                                    content.split("\n")[1:]
-                                )  # Remove header
-
-                                df = pd.read_csv(io.StringIO(converted_content))
-                                if file_info.filename not in file_data_map:
-                                    file_data_map[file_info.filename] = [df]
-                                else:
-                                    file_data_map[file_info.filename].append(df)
-            else:
-                print(f"Failed to download from {url}: {response.status_code}")
-
-            response.close()
+        response = requests.get(history_url)
+        if response.status_code == 200:
+            with zipfile.ZipFile(io.BytesIO(response.content)) as z:
+                for file_info in z.infolist():
+                    if file_info.filename.endswith(".csv"):
+                        with z.open(file_info) as csv_file:
+                            content = csv_file.read().decode("utf-8")
+                            converted_content = full_to_half_width(content)
+                            processed_content = "\n".join(
+                                converted_content.split("\n")[1:]
+                            )
+                            df = pd.read_csv(io.StringIO(processed_content))
+                            file_data_map.setdefault(file_info.filename, []).append(df)
+        else:
+            print(f"Failed to download from {history_url}: {response.status_code}")
+        response.close()
 
     unioned_dir = f"data/plvr/{year}Q{quarter}"
     os.makedirs(unioned_dir, exist_ok=True)
