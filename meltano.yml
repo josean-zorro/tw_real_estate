@@ -39,6 +39,39 @@ plugins:
         start_date: '2017-05-01T00:00:00Z'
         format: csv
         key_properties: []
+  - name: tap-spreadsheets-anywhere
+    variant: ets
+    pip_url: git+https://github.com/ets/tap-spreadsheets-anywhere.git
+    config:
+      tables:
+      - path: gs://tw-real-estate
+        name: transaction_building_information
+        pattern: plvr/\\d{4}Q[1-4]/[a-z]_lvr_land_a_building.csv
+        start_date: '2017-05-01T00:00:00Z'
+        format: csv
+        key_properties: []
+  - name: tap-spreadsheets-anywhere
+    variant: ets
+    pip_url: git+https://github.com/ets/tap-spreadsheets-anywhere.git
+    config:
+      tables:
+      - path: gs://tw-real-estate
+        name: transaction_land_information
+        pattern: plvr/\\d{4}Q[1-4]/[a-z]_lvr_land_a_land.csv
+        start_date: '2017-05-01T00:00:00Z'
+        format: csv
+        key_properties: []
+  - name: tap-spreadsheets-anywhere
+    variant: ets
+    pip_url: git+https://github.com/ets/tap-spreadsheets-anywhere.git
+    config:
+      tables:
+      - path: gs://tw-real-estate
+        name: transaction_park_information
+        pattern: plvr/\\d{4}Q[1-4]/[a-z]_lvr_land_a_park.csv
+        start_date: '2017-05-01T00:00:00Z'
+        format: csv
+        key_properties: []
 
   loaders:
   - name: target-csv
