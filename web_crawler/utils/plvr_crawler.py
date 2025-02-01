@@ -81,7 +81,7 @@ def plvr_historical_crawler(year, season, save_to_gcs=False):
                         if save_to_gcs:
                             # Save to GCS
                             destination_blob_name = (
-                                f"plvr/{year}Q{season}/{file_info.filename}"
+                                f"data/plvr/{year}Q{season}/{file_info.filename}"
                             )
                             upload_to_gcs(
                                 "tw-real-estate",
@@ -151,7 +151,7 @@ def plvr_this_quarter_crawler(save_to_gcs=False):
         if save_to_gcs:
             upload_to_gcs(
                 "tw-real-estate",
-                f"plvr/{year}Q{quarter}/{filename}",
+                f"data/plvr/{year}Q{quarter}/{filename}",
                 unioned_df.to_csv(index=False),
             )
         else:
@@ -178,7 +178,7 @@ def check_existing_folder(
         # Check in GCS
         storage_client = storage.Client()
         bucket = storage_client.bucket(bucket_name)
-        gcs_prefix = f"{folder_name}/"
+        gcs_prefix = f"{prefix}/{folder_name}/"
         blobs = list(bucket.list_blobs(prefix=gcs_prefix))
         return len(blobs) > 0  # Folder exists if there are any blobs under this prefix
     else:
