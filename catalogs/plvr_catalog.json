@@ -281,7 +281,7 @@
               "string"
             ]
           },
-          "": {
+          "transfer_status": {
             "type": [
               "null",
               "string"
@@ -341,7 +341,19 @@
               "string"
             ]
           },
-          "": {
+          "rights_holder_share_denominator": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "rights_holder_share_numerator": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "transfer_status": {
             "type": [
               "null",
               "string"
@@ -407,7 +419,7 @@
               "string"
             ]
           },
-          "": {
+          "berth_floor": {
             "type": [
               "null",
               "string"
