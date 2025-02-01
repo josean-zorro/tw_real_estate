@@ -2,7 +2,7 @@
   "streams": [
     {
       "tap_stream_id": "land_building_park_transaction",
-      "key_properties": [],
+      "key_properties": ["serial_number"],
       "schema": {
         "properties": {
           "the_villages_and_towns_urban_district": {
@@ -230,7 +230,7 @@
     },
     {
       "tap_stream_id": "transaction_build_information",
-      "key_properties": [],
+      "key_properties": ["the_serial_number"],
       "schema": {
         "properties": {
           "the_serial_number": {
@@ -314,7 +314,7 @@
     },
     {
       "tap_stream_id": "transaction_land_information",
-      "key_properties": [],
+      "key_properties": ["the_serial_number"],
       "schema": {
         "properties": {
           "the_serial_number": {
@@ -392,7 +392,7 @@
     },
     {
       "tap_stream_id": "transaction_park_information",
-      "key_properties": [],
+      "key_properties": ["serial_number"],
       "schema": {
         "properties": {
           "serial_number": {
@@ -452,3 +452,4 @@
     }
   ]
 }
+
