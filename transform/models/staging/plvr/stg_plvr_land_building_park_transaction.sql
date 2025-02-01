@@ -4,8 +4,8 @@ with
     renamed as (
 
         select
-            the_villages_and_towns_urban_district as town_ship,
-            transaction_sign,
+            the_villages_and_towns_urban_district as district_township,
+            transaction_sign as property_type,
             land_sector_position_building_sector_house_number_plate,
             land_shifting_total_area_square_meter,
             the_use_zoning_or_compiles_and_checks,
