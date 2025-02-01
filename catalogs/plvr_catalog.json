@@ -1,0 +1,442 @@
+{
+  "streams": [
+    {
+      "tap_stream_id": "land_building_park_transaction",
+      "key_properties": [],
+      "schema": {
+        "properties": {
+          "the_villages_and_towns_urban_district": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "transaction_sign": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "land_sector_position_building_sector_house_number_plate": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "land_shifting_total_area_square_meter": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "the_use_zoning_or_compiles_and_checks": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "the_nonmetropolis_land_use_district": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "nonmetropolis_land_use": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "transaction_year_month_and_day": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "transaction_pen_number": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "shifting_level": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "total_floor_number": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "building_state": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "main_use": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "main_building_materials": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "construction_to_complete_the_years": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "building_shifting_total_area": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "building_present_situation_pattern_room": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "building_present_situation_pattern_hall": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "building_present_situation_pattern_health": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "building_present_situation_pattern_compartmented": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "whether_there_is_manages_the_organization": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "total_price_ntd": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "the_unit_price_ntd_square_meter": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "the_berth_category": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "berth_shifting_total_area_square_meter": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "the_berth_total_price_ntd": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "the_note": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "serial_number": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "main_building_area": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "auxiliary_building_area": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "balcony_area": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "elevator": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "transaction_number": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "_smart_source_bucket": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "_smart_source_file": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "_smart_source_lineno": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "selected": true,
+        "type": "object"
+      },
+      "stream": "land_building_park_transaction",
+      "metadata": []
+    },
+    {
+      "tap_stream_id": "transaction_build_information",
+      "key_properties": [],
+      "schema": {
+        "properties": {
+          "the_serial_number": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "room_age": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "building_shifting_area_square_meter": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "the_main_use": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "main_building_materials": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "construction_completes_the_date": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "total_layer": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "building_lamination": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "_smart_source_bucket": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "_smart_source_file": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "_smart_source_lineno": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "selected": true,
+        "type": "object"
+      },
+      "stream": "transaction_build_information",
+      "metadata": []
+    },
+    {
+      "tap_stream_id": "transaction_land_information",
+      "key_properties": [],
+      "schema": {
+        "properties": {
+          "the_serial_number": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "_land_position": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "land_shifting_area_square_meter": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "the_use_zoning_or_compiles_and_checks": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "land_parcel": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "_smart_source_bucket": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "_smart_source_file": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "_smart_source_lineno": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "selected": true,
+        "type": "object"
+      },
+      "stream": "transaction_land_information",
+      "metadata": []
+    },
+    {
+      "tap_stream_id": "transaction_park_information",
+      "key_properties": [],
+      "schema": {
+        "properties": {
+          "serial_number": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "berth_category": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "berth_price": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "berth_area_square_meter": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "_smart_source_bucket": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "_smart_source_file": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "_smart_source_lineno": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "selected": true,
+        "type": "object"
+      },
+      "stream": "transaction_park_information",
+      "metadata": []
+    }
+  ]
+}
