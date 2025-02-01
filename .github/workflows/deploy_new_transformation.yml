@@ -7,9 +7,9 @@ on:
   workflow_dispatch:  # Allows you to trigger the workflow manually
 
 jobs:
+  run-dbt-full-refresh:
   if_merged:
     if: github.event.pull_request.merged == true
-      run-dbt-model-schema-changed:
       runs-on: ubuntu-latest
         permissions:
         contents: 'read'
