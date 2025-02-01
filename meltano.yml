@@ -35,7 +35,7 @@ plugins:
       tables:
       - path: gs://tw-real-estate
         name: land_building_park_transaction
-        pattern: plvr/\\d{4}Q[1-4]/[a-z]_lvr_land_a.csv
+        pattern: data/plvr/\\d{4}Q[1-4]/[a-z]_lvr_land_a.csv
         start_date: '2017-05-01T00:00:00Z'
         format: csv
         key_properties: []
@@ -46,7 +46,7 @@ plugins:
       tables:
       - path: gs://tw-real-estate
         name: transaction_building_information
-        pattern: plvr/\\d{4}Q[1-4]/[a-z]_lvr_land_a_building.csv
+        pattern: data/plvr/\\d{4}Q[1-4]/[a-z]_lvr_land_a_building.csv
         start_date: '2017-05-01T00:00:00Z'
         format: csv
         key_properties: []
@@ -57,7 +57,7 @@ plugins:
       tables:
       - path: gs://tw-real-estate
         name: transaction_land_information
-        pattern: plvr/\\d{4}Q[1-4]/[a-z]_lvr_land_a_land.csv
+        pattern: data/plvr/\\d{4}Q[1-4]/[a-z]_lvr_land_a_land.csv
         start_date: '2017-05-01T00:00:00Z'
         format: csv
         key_properties: []
@@ -68,7 +68,7 @@ plugins:
       tables:
       - path: gs://tw-real-estate
         name: transaction_park_information
-        pattern: plvr/\\d{4}Q[1-4]/[a-z]_lvr_land_a_park.csv
+        pattern: data/plvr/\\d{4}Q[1-4]/[a-z]_lvr_land_a_park.csv
         start_date: '2017-05-01T00:00:00Z'
         format: csv
         key_properties: []
@@ -84,7 +84,7 @@ plugins:
     variant: z3z1ma
     pip_url: git+https://github.com/z3z1ma/target-bigquery.git
     config:
-      batch_size: 500
+      batch_size: 1000
       cluster_on_key_properties: false
       column_name_transforms:
         add_underscore_when_invalid: false
