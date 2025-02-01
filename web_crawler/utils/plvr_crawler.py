@@ -126,6 +126,7 @@ def plvr_this_quarter_crawler(save_to_gcs=False):
                         if file_info.filename.endswith(".csv"):
                             with z.open(file_info) as csv_file:
                                 content = csv_file.read().decode("utf-8")
+                                converted_content = full_to_half_width(content)
                                 converted_content = "\n".join(
                                     content.split("\n")[1:]
                                 )  # Remove header
