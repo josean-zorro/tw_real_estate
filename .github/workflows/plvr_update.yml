@@ -1,6 +1,7 @@
 on:
   workflow_dispatch: # workflow_dispatch enables the workflow to be triggered manually
-
+  schedule:           # Optionally schedule the crawler (e.g., every day at midnight)
+    - cron: "0 4 1,11,21 * *"
 jobs:
   meltano:
     runs-on: ubuntu-latest
