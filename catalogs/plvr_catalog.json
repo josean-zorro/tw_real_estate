@@ -314,7 +314,7 @@
     },
     {
       "tap_stream_id": "transaction_land_information",
-      "key_properties": ["the_serial_number"],
+      "key_properties": ["the_serial_number","land_parcel"],
       "schema": {
         "properties": {
           "the_serial_number": {

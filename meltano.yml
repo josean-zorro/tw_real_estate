@@ -39,18 +39,18 @@ plugins:
         start_date: '2017-05-01T00:00:00Z'
         format: csv
         key_properties: [serial_number]
-      - path: gs://tw-real-estate
-        name: transaction_build_information
-        pattern: data/plvr/\d{4}Q[1-4]/[a-z]_lvr_land_a_build.csv
-        start_date: '2017-05-01T00:00:00Z'
-        format: csv
-        key_properties: [serial_number]
-      - path: gs://tw-real-estate
-        name: transaction_park_information
-        pattern: data/plvr/\d{4}Q[1-4]/[a-z]_lvr_land_a_part.csv
-        start_date: '2017-05-01T00:00:00Z'
-        format: csv
-        key_properties: [serial_number]
+        #- path: gs://tw-real-estate
+        #name: transaction_build_information
+        #pattern: data/plvr/\d{4}Q[1-4]/[a-z]_lvr_land_a_build.csv
+        #start_date: '2017-05-01T00:00:00Z'
+        #format: csv
+        #key_properties: [serial_number]
+        #- path: gs://tw-real-estate
+        #name: transaction_park_information
+        #pattern: data/plvr/\d{4}Q[1-4]/[a-z]_lvr_land_a_park.csv
+        #start_date: '2017-05-01T00:00:00Z'
+        #format: csv
+        #key_properties: [serial_number]
       - path: gs://tw-real-estate
         name: transaction_land_information
         pattern: data/plvr/\d{4}Q[1-4]/[a-z]_lvr_land_a_land.csv
