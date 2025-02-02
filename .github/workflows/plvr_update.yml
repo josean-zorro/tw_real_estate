@@ -1,5 +1,6 @@
+
 on:
-  workflow_dispatch: # workflow_dispatch enables the workflow to be triggered manually
+  workflow_dispatch: # Allows manual triggering of the workflow
 
 jobs:
   meltano:
@@ -22,6 +23,7 @@ jobs:
         with:
           workload_identity_provider: '${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}'
           service_account: '${{ secrets.GCP_SERVICE_ACCOUNT }}'
+
       # Get the database files from the previous run, if exists
       - name: Download latest SQLite database artifact
         uses: dawidd6/action-download-artifact@v8
@@ -31,9 +33,32 @@ jobs:
           branch: main
           name: meltano.db
           path: ${{ github.workspace }}
-          workflow_conclusion: completed # Download artifacts from the latest completed run, even if it failed. This enables Meltano to start off from where a tap failed.
-      - name: Meltano
-        if: always() # Always run this step even if the prior failed due to no artifact found (this should only take effect if first time running)
+          workflow_conclusion: completed
+
+      # Determine the day of the month and set it as an output variable
+      - name: Get Day of Month
+        id: get_day
+        run: |
+          # Get the day of month as a number without a leading zero (e.g., 1, 11, 21)
+          DAY=$(date +'%d' | sed 's/^0*//')
+          echo "DAY_OF_MONTH=$DAY" >> $GITHUB_OUTPUT
+          echo "Current day of month: $DAY"
+
+      # Run the crawler:web_crawler command only on the 1st, 11th, or 21st day of the month
+      - name: Run plvr crawler (conditional)
+        if: steps.get_day.outputs.DAY_OF_MONTH == '1' || steps.get_day.outputs.DAY_OF_MONTH == '11' || steps.get_day.outputs.DAY_OF_MONTH == '21'
+        uses: ./
+        env:
+          TARGET_BIGQUERY_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+          MELTANO_DATABASE_URI: sqlite:////github/workspace/meltano.db
+          MELTANO_ENVIRONMENT: prod
+          PYTHONUNBUFFERED: 1
+        with:
+          args: | 
+            meltano run crawler:web_crawler
+
+      # Run the remaining Meltano commands that should execute every time the workflow is triggered
+      - name: Run remaining Meltano commands
         uses: ./
         env:
           TARGET_BIGQUERY_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
@@ -42,10 +67,13 @@ jobs:
           PYTHONUNBUFFERED: 1
         with:
           args: |
-            meltano run crawler:plvr_crawler&&meltano el tap-spreadsheets-anywhere target-bigquery --state-id=plvr_el --catalog catalogs/plvr_catalog.json&&meltano invoke dbt-bigquery:deps&&meltano invoke dbt-bigquery:build
-      # Upload the sqlite database containing incremental, bookmark state
+            meltano el tap-spreadsheets-anywhere target-bigquery --state-id=plvr_el --catalog catalogs/plvr_catalog.json &&
+            meltano invoke dbt-bigquery:deps &&
+            meltano invoke dbt-bigquery:build
+
+      # Upload the SQLite database containing incremental, bookmark state
       - name: Upload SQLite database artifact
-        if: always() # Always run this step even if the prior failed
+        if: always() # Always run this step even if prior steps failed
         uses: actions/upload-artifact@v4
         with:
           name: meltano.db
