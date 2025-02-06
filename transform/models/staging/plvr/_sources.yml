@@ -6,11 +6,56 @@ sources:
     tables:
       - name: land_building_park_transaction
         description: ""
-        test:
+        tests:
           - dbt_utils.expression_is_true:
               expression: SAFE_CAST(land_shifting_total_area_square_meter AS FLOAT64) IS NOT NULL
               config:
-                where: DATE(_sdc_batched_at) = CURRENT_DATE()
+                name: land_shifting_total_area_square_meter_is_float
+
+          - dbt_utils.expression_is_true:
+              expression: SAFE_CAST(building_shifting_total_area AS FLOAT64) IS NOT NULL
+              config:
+                name: building_shifting_total_area_is_float
+          - dbt_utils.expression_is_true:
+              expression: SAFE_CAST(building_present_situation_pattern_room AS FLOAT64) IS NOT NULL
+              config:
+                name: building_present_situation_pattern_room_is_float
+          - dbt_utils.expression_is_true:
+              expression: SAFE_CAST(building_present_situation_pattern_hall AS FLOAT64) IS NOT NULL
+              config:
+                name: building_present_situation_pattern_hall_is_float
+          - dbt_utils.expression_is_true:
+              expression: SAFE_CAST(building_present_situation_pattern_health AS FLOAT64) IS NOT NULL
+              config:
+                name: building_present_situation_pattern_health_is_float
+          - dbt_utils.expression_is_true:
+              expression: "REGEXP_CONTAINS(CAST(total_price_ntd AS STRING), r'^\\d+(\\.\\d+)?$')"
+              config:
+                name: total_price_ntd_is_float
+          - dbt_utils.expression_is_true:
+              expression: "REGEXP_CONTAINS(CAST(the_unit_price_ntd_square_meter AS STRING), r'^\\d+(\\.\\d+)?$')"
+              config:
+                name: the_unit_price_ntd_square_meter_is_float
+          - dbt_utils.expression_is_true:
+              expression: "REGEXP_CONTAINS(CAST(berth_shifting_total_area_square_meter AS STRING), r'^\\d+(\\.\\d+)?$')"
+              config:
+                name: berth_shifting_total_area_square_meter_is_float
+          - dbt_utils.expression_is_true:
+              expression: "REGEXP_CONTAINS(CAST(the_berth_total_price_ntd AS STRING), r'^\\d+(\\.\\d+)?$')"
+              config:
+                name: the_berth_total_price_ntd_is_float
+          - dbt_utils.expression_is_true:
+              expression: "REGEXP_CONTAINS(CAST(main_building_area AS STRING), r'^\\d+(\\.\\d+)?$')"
+              config:
+                name: main_building_area_is_float
+          - dbt_utils.expression_is_true:
+              expression: "REGEXP_CONTAINS(CAST(auxiliary_building_area AS STRING), r'^\\d+(\\.\\d+)?$')"
+              config:
+                name: auxiliary_building_area_is_float
+          - dbt_utils.expression_is_true:
+              expression: "REGEXP_CONTAINS(CAST(balcony_area AS STRING), r'^\\d+(\\.\\d+)?$')"
+              config:
+                name: balcony_area_is_float
         columns:
           - name: the_villages_and_towns_urban_district
             data_type: string
@@ -34,7 +79,7 @@ sources:
             data_type: string
             description: ""
           - name: transaction_year_month_and_day
-            data_type: int64
+            data_type: string
             description: ""
           - name: transaction_pen_number
             data_type: string
@@ -55,19 +100,19 @@ sources:
             data_type: string
             description: ""
           - name: construction_to_complete_the_years
-            data_type: int64
+            data_type: string
             description: ""
           - name: building_shifting_total_area
-            data_type: float64
+            data_type: string
             description: ""
           - name: building_present_situation_pattern_room
-            data_type: int64
+            data_type: string
             description: ""
           - name: building_present_situation_pattern_hall
-            data_type: int64
+            data_type: string
             description: ""
           - name: building_present_situation_pattern_health
-            data_type: int64
+            data_type: string
             description: ""
           - name: building_present_situation_pattern_compartmented
             data_type: string
@@ -76,19 +121,19 @@ sources:
             data_type: string
             description: ""
           - name: total_price_ntd
-            data_type: int64
+            data_type: string
             description: ""
           - name: the_unit_price_ntd_square_meter
-            data_type: int64
+            data_type: string
             description: ""
           - name: the_berth_category
             data_type: string
             description: ""
           - name: berth_shifting_total_area_square_meter
-            data_type: float64
+            data_type: string
             description: ""
           - name: the_berth_total_price_ntd
-            data_type: int64
+            data_type: string
             description: ""
           - name: the_note
             data_type: string
@@ -100,19 +145,19 @@ sources:
               - unique
               - not_null
           - name: main_building_area
-            data_type: float64
+            data_type: string
             description: ""
           - name: auxiliary_building_area
-            data_type: float64
+            data_type: string
             description: ""
           - name: balcony_area
-            data_type: float64
+            data_type: string
             description: ""
           - name: elevator
             data_type: string
             description: ""
           - name: transaction_number
-            data_type: int64
+            data_type: string
             description: ""
           - name: _smart_source_bucket
             data_type: string
