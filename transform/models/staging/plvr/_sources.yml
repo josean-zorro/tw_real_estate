@@ -56,6 +56,17 @@ sources:
               expression: "REGEXP_CONTAINS(CAST(balcony_area AS STRING), r'^\\d+(\\.\\d+)?$')"
               config:
                 name: balcony_area_is_float
+          - dbt_utils.expression_is_true:
+              tags: ['test']
+              expression: "length(transaction_year_month_and_day) in (6,7) and SAFE.PARSE_DATE('%Y%m%d', CAST(19110000 + SAFE_CAST(transaction_year_month_and_day AS INT64) AS STRING)) IS NOT NULL AND SAFE.PARSE_DATE('%Y%m%d', SAFE_CAST(19110000 + SAFE_CAST(transaction_year_month_and_day AS INT64) AS STRING)) < CURRENT_DATE()"
+              config:
+                name: transaction_year_month_and_day_is_valid_date
+          - dbt_utils.expression_is_true:
+              tags: ['test']
+              expression: "SAFE.PARSE_DATE('%Y%m%d', CAST(19110000 + SAFE_CAST(REGEXP_REPLACE(construction_to_complete_the_years, '^0+', '') AS INT64) AS STRING)) IS NOT NULL AND SAFE.PARSE_DATE('%Y%m%d', SAFE_CAST(19110000 + SAFE_CAST(REGEXP_REPLACE(construction_to_complete_the_years, '^0+', '') AS INT64) AS STRING)) < CURRENT_DATE()"
+              config:
+                name: construction_to_complete_the_years_is_valid_date
+                where: construction_to_complete_the_years is not null
         columns:
           - name: the_villages_and_towns_urban_district
             data_type: string
@@ -117,6 +128,9 @@ sources:
           - name: building_present_situation_pattern_compartmented
             data_type: string
             description: ""
+            tests:
+              - accepted_values:
+                  values: ["無", "有"]
           - name: whether_there_is_manages_the_organization
             data_type: string
             description: ""
