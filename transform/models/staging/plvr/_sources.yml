@@ -57,13 +57,12 @@ sources:
               config:
                 name: balcony_area_is_float
           - dbt_utils.expression_is_true:
-              tags: ['test']
-              expression: "length(transaction_year_month_and_day) in (6,7) and SAFE.PARSE_DATE('%Y%m%d', CAST(19110000 + SAFE_CAST(transaction_year_month_and_day AS INT64) AS STRING)) IS NOT NULL AND SAFE.PARSE_DATE('%Y%m%d', SAFE_CAST(19110000 + SAFE_CAST(transaction_year_month_and_day AS INT64) AS STRING)) < CURRENT_DATE()"
+              expression: "{{ validate_taiwan_date('transaction_year_month_and_day') }}"
               config:
                 name: transaction_year_month_and_day_is_valid_date
           - dbt_utils.expression_is_true:
-              tags: ['test']
-              expression: "SAFE.PARSE_DATE('%Y%m%d', CAST(19110000 + SAFE_CAST(REGEXP_REPLACE(construction_to_complete_the_years, '^0+', '') AS INT64) AS STRING)) IS NOT NULL AND SAFE.PARSE_DATE('%Y%m%d', SAFE_CAST(19110000 + SAFE_CAST(REGEXP_REPLACE(construction_to_complete_the_years, '^0+', '') AS INT64) AS STRING)) < CURRENT_DATE()"
+              expression: "{{ validate_taiwan_date('construction_to_complete_the_years', earliest_date=None) }}"
+              config:
               config:
                 name: construction_to_complete_the_years_is_valid_date
                 where: construction_to_complete_the_years is not null
