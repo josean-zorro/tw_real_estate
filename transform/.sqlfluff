@@ -1,0 +1,20 @@
+[sqlfluff]
+dialect = postgres
+templater = jinja
+# Exclude formatting rules
+exclude_rules = layout.indent, layout.cte_bracket, layout.select_targets, layout.spacing, ST07, ST01, ST06
+
+# set max_line_length to whatever you set in sqlfmt
+max_line_length = 88
+
+[sqlfluff:rules]
+capitalisation_policy = lower
+extended_capitalisation_policy = lower
+
+[sqlfluff:rules:convention.terminator]
+multiline_newline = True
+
+[sqlfluff:templater:jinja]
+apply_dbt_builtins = true
+load_macros_from_path = macros
+

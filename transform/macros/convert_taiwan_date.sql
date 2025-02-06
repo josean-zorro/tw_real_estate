@@ -1,4 +1,3 @@
--- macros/convert_taiwan_date.sql
 {% macro convert_taiwan_date(column) %}
     safe.parse_date(
         '%Y%m%d',
