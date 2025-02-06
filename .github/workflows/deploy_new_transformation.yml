@@ -8,13 +8,13 @@ on:
 
 jobs:
   run-dbt-full-refresh:
-  if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
       permissions:
         contents: 'read'
         id-token: 'write'
         actions: 'read'
       
+    if: github.event.pull_request.merged == true
     steps:
       # Checkout the repository so that a path to the action.yml can be used
       - uses: actions/checkout@v3
