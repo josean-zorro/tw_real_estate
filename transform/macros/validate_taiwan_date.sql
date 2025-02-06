@@ -1,4 +1,4 @@
-{% import 'convert_taiwan_date.sql' as my_macros %}
+{% import 'convert_taiwan_date.sql' as house_and_renting %}
 {% macro validate_taiwan_date(column, earliest_date="2011-07-01", latest_date=None) %}
     {# Set the latest_date expression: use CURRENT_DATE() if latest_date is not provided #}
     {% if latest_date is none %} {% set latest_date_expr = "CURRENT_DATE()" %}
@@ -8,15 +8,17 @@
     {# If earliest_date is provided, include the lower bound check; otherwise, skip it #}
     {% if earliest_date is none %}
         (
-            {{ my_macros.convert_taiwan_date(column) }} is not null
-            and {{ my_macros.convert_taiwan_date(column) }} <= {{ latest_date_expr }}
+            {{ house_and_renting.convert_taiwan_date(column) }} is not null
+            and {{ house_and_renting.convert_taiwan_date(column) }}
+            <= {{ latest_date_expr }}
         )
     {% else %}
         (
-            {{ my_macros.convert_taiwan_date(column) }} is not null
-            and {{ my_macros.convert_taiwan_date(column) }}
+            {{ house_and_renting.convert_taiwan_date(column) }} is not null
+            and {{ house_and_renting.convert_taiwan_date(column) }}
             >= date('{{ earliest_date }}')
-            and {{ my_macros.convert_taiwan_date(column) }} <= {{ latest_date_expr }}
+            and {{ house_and_renting.convert_taiwan_date(column) }}
+            <= {{ latest_date_expr }}
         )
     {% endif %}
 {% endmacro %}
