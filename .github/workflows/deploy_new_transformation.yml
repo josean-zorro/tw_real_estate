@@ -8,7 +8,7 @@ on:
 
 jobs:
   run-dbt-full-refresh:
-    if: github.event.pull_request.merged == true
+  if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
       permissions:
         contents: 'read'
