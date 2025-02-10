@@ -3,6 +3,8 @@ version: '1.0'
 profile: meltano
 config-version: 2
 require-dbt-version: [">=1.0.0", "<2.0.0"]
+vars:
+  "dbt_date:time_zone": "Taiwan/Taipei"
 model-paths:
 - models
 analysis-paths:
@@ -10,7 +12,7 @@ analysis-paths:
 test-paths:
 - tests
 seed-paths:
-- data
+- seeds
 macro-paths:
 - macros
 snapshot-paths:

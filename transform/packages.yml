@@ -4,5 +4,6 @@ packages:
   - package: dbt-labs/dbt_utils
     version: [">=1.0.0", "<1.2.0"]
   - package: elementary-data/elementary
-    version: 0.13.0
-    ## Docs: https://docs.elementary-data.com
+    version: 0.13.0  
+  - package: calogica/dbt_date
+    version: [">=0.9.0", "<0.10.0"]

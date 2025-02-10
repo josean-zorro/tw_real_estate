@@ -1,0 +1,55 @@
+name: Run dbt models schema changed
+
+on:
+  pull_request:
+    types:
+      - closed
+  workflow_dispatch:  # Allows you to trigger the workflow manually
+
+jobs:
+  run-dbt-full-refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+      actions: 'read'
+      
+    if: github.event.pull_request.merged == true
+    steps:
+      # Checkout the repository so that a path to the action.yml can be used
+      - uses: actions/checkout@v3
+
+      # Authenticate to Google SDK for target-bigquery
+      - name: Set up Cloud SDK
+        uses: google-github-actions/auth@v2.0.0
+        with:
+          workload_identity_provider: '${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}'
+          service_account: '${{ secrets.GCP_SERVICE_ACCOUNT }}'
+      # Get the database files from the previous run, if exists
+      - name: Download latest SQLite database artifact
+        uses: dawidd6/action-download-artifact@v8
+        continue-on-error: true
+        with:
+          workflow: ${{ github.workflow }}
+          branch: main
+          name: meltano.db
+          path: ${{ github.workspace }}
+          workflow_conclusion: completed # Download artifacts from the latest completed run, even if it failed. This enables Meltano to start off from where a tap failed.
+      - name: Meltano
+        if: always() # Always run this step even if the prior failed due to no artifact found (this should only take effect if first time running)
+        uses: ./
+        env:
+          TARGET_BIGQUERY_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+          MELTANO_DATABASE_URI: sqlite:////github/workspace/meltano.db
+          MELTANO_ENVIRONMENT: prod
+          PYTHONUNBUFFERED: 1
+        with:
+          args: |
+            mletano invoke dbt-bigquery:deps&&meltano invoke dbt-bigquery:build
+      # Upload the sqlite database containing incremental, bookmark state
+      - name: Upload SQLite database artifact
+        if: always() # Always run this step even if the prior failed
+        uses: actions/upload-artifact@v4
+        with:
+          name: meltano.db
+          path: ${{ github.workspace }}/meltano.db*

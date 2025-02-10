@@ -1,7 +1,8 @@
 
 on:
-  workflow_dispatch: # Allows manual triggering of the workflow
-
+  workflow_dispatch: # workflow_dispatch enables the workflow to be triggered manually
+  schedule:           # Optionally schedule the crawler (e.g., every day at midnight)
+    - cron: "0 4 1,11,21 * *"
 jobs:
   meltano:
     runs-on: ubuntu-latest
@@ -55,7 +56,9 @@ jobs:
           PYTHONUNBUFFERED: 1
         with:
           args: | 
-            meltano run crawler:web_crawler
+            meltano run crawler:web_crawler &&
+            meltano invoke dbt-bigquery:deps &&
+            meltano invoke dbt-bigquery:test --select source:plvr
 
       # Run the remaining Meltano commands that should execute every time the workflow is triggered
       - name: Run remaining Meltano commands
@@ -69,7 +72,7 @@ jobs:
           args: |
             meltano el tap-spreadsheets-anywhere target-bigquery --state-id=plvr_el --catalog catalogs/plvr_catalog.json &&
             meltano invoke dbt-bigquery:deps &&
-            meltano invoke dbt-bigquery:build
+            meltano invoke dbt-bigquery:build --exclude source:plvr
 
       # Upload the SQLite database containing incremental, bookmark state
       - name: Upload SQLite database artifact

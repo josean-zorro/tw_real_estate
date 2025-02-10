@@ -6,6 +6,79 @@ sources:
     tables:
       - name: land_building_park_transaction
         description: ""
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: SAFE_CAST(land_shifting_total_area_square_meter AS FLOAT64) IS NOT NULL
+              config:
+                name: land_shifting_total_area_square_meter_is_float
+                where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
+
+          - dbt_utils.expression_is_true:
+              expression: SAFE_CAST(building_shifting_total_area AS FLOAT64) IS NOT NULL
+              config:
+                name: building_shifting_total_area_is_float
+                where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
+          - dbt_utils.expression_is_true:
+              expression: SAFE_CAST(building_present_situation_pattern_room AS FLOAT64) IS NOT NULL
+              config:
+                name: building_present_situation_pattern_room_is_float
+                where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
+          - dbt_utils.expression_is_true:
+              expression: SAFE_CAST(building_present_situation_pattern_hall AS FLOAT64) IS NOT NULL
+              config:
+                name: building_present_situation_pattern_hall_is_float
+                where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
+          - dbt_utils.expression_is_true:
+              expression: SAFE_CAST(building_present_situation_pattern_health AS FLOAT64) IS NOT NULL
+              config:
+                name: building_present_situation_pattern_health_is_float
+                where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
+          - dbt_utils.expression_is_true:
+              expression: "REGEXP_CONTAINS(CAST(total_price_ntd AS STRING), r'^\\d+(\\.\\d+)?$')"
+              config:
+                name: total_price_ntd_is_float
+                where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
+          - dbt_utils.expression_is_true:
+              expression: "REGEXP_CONTAINS(CAST(the_unit_price_ntd_square_meter AS STRING), r'^\\d+(\\.\\d+)?$')"
+              config:
+                name: the_unit_price_ntd_square_meter_is_float
+                where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
+          - dbt_utils.expression_is_true:
+              expression: "REGEXP_CONTAINS(CAST(berth_shifting_total_area_square_meter AS STRING), r'^\\d+(\\.\\d+)?$')"
+              config:
+                name: berth_shifting_total_area_square_meter_is_float
+                where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
+          - dbt_utils.expression_is_true:
+              expression: "REGEXP_CONTAINS(CAST(the_berth_total_price_ntd AS STRING), r'^\\d+(\\.\\d+)?$')"
+              config:
+                name: the_berth_total_price_ntd_is_float
+                where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
+          - dbt_utils.expression_is_true:
+              expression: "REGEXP_CONTAINS(CAST(main_building_area AS STRING), r'^\\d+(\\.\\d+)?$')"
+              config:
+                name: main_building_area_is_float
+                where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
+          - dbt_utils.expression_is_true:
+              expression: "REGEXP_CONTAINS(CAST(auxiliary_building_area AS STRING), r'^\\d+(\\.\\d+)?$')"
+              config:
+                name: auxiliary_building_area_is_float
+                where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
+          - dbt_utils.expression_is_true:
+              expression: "REGEXP_CONTAINS(CAST(balcony_area AS STRING), r'^\\d+(\\.\\d+)?$')"
+              config:
+                name: balcony_area_is_float
+                where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
+          - dbt_utils.expression_is_true:
+              expression: "{{ validate_taiwan_date('transaction_year_month_and_day') }}"
+              config:
+                name: transaction_year_month_and_day_is_valid_date
+                where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
+          - dbt_utils.expression_is_true:
+              expression: "{{ validate_taiwan_date('construction_to_complete_the_years', earliest_date=None) }}"
+              config:
+              config:
+                name: construction_to_complete_the_years_is_valid_date
+                where: 'date(_sdc_batched_at) = current_date("Asia/Taipei") and construction_to_complete_the_years is not null'
         columns:
           - name: the_villages_and_towns_urban_district
             data_type: string
@@ -17,7 +90,7 @@ sources:
             data_type: string
             description: ""
           - name: land_shifting_total_area_square_meter
-            data_type: float64
+            data_type: string
             description: ""
           - name: the_use_zoning_or_compiles_and_checks
             data_type: string
@@ -29,7 +102,7 @@ sources:
             data_type: string
             description: ""
           - name: transaction_year_month_and_day
-            data_type: int64
+            data_type: string
             description: ""
           - name: transaction_pen_number
             data_type: string
@@ -50,40 +123,43 @@ sources:
             data_type: string
             description: ""
           - name: construction_to_complete_the_years
-            data_type: int64
+            data_type: string
             description: ""
           - name: building_shifting_total_area
-            data_type: float64
+            data_type: string
             description: ""
           - name: building_present_situation_pattern_room
-            data_type: int64
+            data_type: string
             description: ""
           - name: building_present_situation_pattern_hall
-            data_type: int64
+            data_type: string
             description: ""
           - name: building_present_situation_pattern_health
-            data_type: int64
+            data_type: string
             description: ""
           - name: building_present_situation_pattern_compartmented
             data_type: string
             description: ""
+            tests:
+              - accepted_values:
+                  values: ["無", "有"]
           - name: whether_there_is_manages_the_organization
             data_type: string
             description: ""
           - name: total_price_ntd
-            data_type: int64
+            data_type: string
             description: ""
           - name: the_unit_price_ntd_square_meter
-            data_type: int64
+            data_type: string
             description: ""
           - name: the_berth_category
             data_type: string
             description: ""
           - name: berth_shifting_total_area_square_meter
-            data_type: float64
+            data_type: string
             description: ""
           - name: the_berth_total_price_ntd
-            data_type: int64
+            data_type: string
             description: ""
           - name: the_note
             data_type: string
@@ -91,20 +167,23 @@ sources:
           - name: serial_number
             data_type: string
             description: ""
+            tests:
+              - unique
+              - not_null
           - name: main_building_area
-            data_type: float64
+            data_type: string
             description: ""
           - name: auxiliary_building_area
-            data_type: float64
+            data_type: string
             description: ""
           - name: balcony_area
-            data_type: float64
+            data_type: string
             description: ""
           - name: elevator
             data_type: string
             description: ""
           - name: transaction_number
-            data_type: int64
+            data_type: string
             description: ""
           - name: _smart_source_bucket
             data_type: string
