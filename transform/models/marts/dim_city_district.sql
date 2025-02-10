@@ -1,4 +1,4 @@
-{{ config(materialized="incremental") }}
+{{ config(materialized="incremental", unique_key="city_district_surrogate_key") }}
 
 with
     address as (

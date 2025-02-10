@@ -1,4 +1,4 @@
-{{ config(materialized="incremental") }}
+{{ config(materialized="incremental", unique_key="layout_id") }}
 
 with
     result as (
@@ -28,7 +28,7 @@ with
         where
             1 = 1
             {% if is_incremental() %}
-                and last_batched_at
+                and _sdc_batched_at
                 >= (select max(this.last_batched_at) from {{ this }} as this)
             {% endif %}
         group by all

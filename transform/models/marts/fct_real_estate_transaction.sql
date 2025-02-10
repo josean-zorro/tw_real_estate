@@ -1,4 +1,15 @@
-{{ config(materialized="incremental") }}
+{{
+    config(
+        materialized="incremental",
+        unique_key="transaction_id",
+        cluster_by="_sdc_batched_at",
+    )
+}}
+
+{% if execute and is_incremental() %}
+    {% set query = "select max(_sdc_batched_at) from {}".format(this) %}
+    {% set result = run_query(query).columns[0].values()[0] %}
+{% endif %}
 
 with
     result as (
@@ -44,9 +55,7 @@ with
             _sdc_batched_at
         from {{ ref("int_plvr_transaction") }}
         {%- if is_incremental() %}
-            where
-                _sdc_batched_at
-                > (select max(this._sdc_batched_at) from {{ this }} as this)
+            where _sdc_batched_at > (select safe_cast('{{ result }}' as timestamp))
         {% endif %}
     )
 

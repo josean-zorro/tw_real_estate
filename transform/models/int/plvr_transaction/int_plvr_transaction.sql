@@ -14,7 +14,7 @@ with
             {{
                 dbt_utils.generate_surrogate_key(
                     [
-                        "building_number_of_bathrooms",
+                        "building_number_of_bedrooms",
                         "building_number_of_living_rooms",
                         "building_number_of_bathrooms",
                         "building_number_of_partitions",
