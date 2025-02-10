@@ -67,14 +67,6 @@ with
             elevator as has_elevator,
             transaction_number as transferred_number,
             upper(regexp_extract(_smart_source_file, r'/(a-za-z])_')) as city_id,
-            {{
-                dbt_utils.generate_surrogate_key(
-                    [
-                        "upper(regexp_extract(_smart_source_file, r'/(a-za-z])_'))",
-                        "the_villages_and_towns_urban_district",
-                    ]
-                )
-            }} as city_district_surrogate_key,
             _smart_source_bucket,
             _smart_source_file,
             _smart_source_lineno,
