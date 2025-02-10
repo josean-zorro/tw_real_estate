@@ -8,86 +8,72 @@ sources:
         description: ""
         tests:
           - dbt_utils.expression_is_true:
-              tags: ["plvr_crawler"]
               expression: SAFE_CAST(land_shifting_total_area_square_meter AS FLOAT64) IS NOT NULL
               config:
                 name: land_shifting_total_area_square_meter_is_float
                 where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
 
           - dbt_utils.expression_is_true:
-              tags: ["plvr_crawler"]
               expression: SAFE_CAST(building_shifting_total_area AS FLOAT64) IS NOT NULL
               config:
                 name: building_shifting_total_area_is_float
                 where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
           - dbt_utils.expression_is_true:
-              tags: ["plvr_crawler"]
               expression: SAFE_CAST(building_present_situation_pattern_room AS FLOAT64) IS NOT NULL
               config:
                 name: building_present_situation_pattern_room_is_float
                 where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
           - dbt_utils.expression_is_true:
-              tags: ["plvr_crawler"]
               expression: SAFE_CAST(building_present_situation_pattern_hall AS FLOAT64) IS NOT NULL
               config:
                 name: building_present_situation_pattern_hall_is_float
                 where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
           - dbt_utils.expression_is_true:
-              tags: ["plvr_crawler"]
               expression: SAFE_CAST(building_present_situation_pattern_health AS FLOAT64) IS NOT NULL
               config:
                 name: building_present_situation_pattern_health_is_float
                 where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
           - dbt_utils.expression_is_true:
-              tags: ["plvr_crawler"]
               expression: "REGEXP_CONTAINS(CAST(total_price_ntd AS STRING), r'^\\d+(\\.\\d+)?$')"
               config:
                 name: total_price_ntd_is_float
                 where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
           - dbt_utils.expression_is_true:
-              tags: ["plvr_crawler"]
               expression: "REGEXP_CONTAINS(CAST(the_unit_price_ntd_square_meter AS STRING), r'^\\d+(\\.\\d+)?$')"
               config:
                 name: the_unit_price_ntd_square_meter_is_float
                 where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
           - dbt_utils.expression_is_true:
-              tags: ["plvr_crawler"]
               expression: "REGEXP_CONTAINS(CAST(berth_shifting_total_area_square_meter AS STRING), r'^\\d+(\\.\\d+)?$')"
               config:
                 name: berth_shifting_total_area_square_meter_is_float
                 where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
           - dbt_utils.expression_is_true:
-              tags: ["plvr_crawler"]
               expression: "REGEXP_CONTAINS(CAST(the_berth_total_price_ntd AS STRING), r'^\\d+(\\.\\d+)?$')"
               config:
                 name: the_berth_total_price_ntd_is_float
                 where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
           - dbt_utils.expression_is_true:
-              tags: ["plvr_crawler"]
               expression: "REGEXP_CONTAINS(CAST(main_building_area AS STRING), r'^\\d+(\\.\\d+)?$')"
               config:
                 name: main_building_area_is_float
                 where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
           - dbt_utils.expression_is_true:
-              tags: ["plvr_crawler"]
               expression: "REGEXP_CONTAINS(CAST(auxiliary_building_area AS STRING), r'^\\d+(\\.\\d+)?$')"
               config:
                 name: auxiliary_building_area_is_float
                 where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
           - dbt_utils.expression_is_true:
-              tags: ["plvr_crawler"]
               expression: "REGEXP_CONTAINS(CAST(balcony_area AS STRING), r'^\\d+(\\.\\d+)?$')"
               config:
                 name: balcony_area_is_float
                 where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
           - dbt_utils.expression_is_true:
-              tags: ["plvr_crawler"]
               expression: "{{ validate_taiwan_date('transaction_year_month_and_day') }}"
               config:
                 name: transaction_year_month_and_day_is_valid_date
                 where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
           - dbt_utils.expression_is_true:
-              tags: ["plvr_crawler"]
               expression: "{{ validate_taiwan_date('construction_to_complete_the_years', earliest_date=None) }}"
               config:
               config:
