@@ -56,7 +56,7 @@ jobs:
           PYTHONUNBUFFERED: 1
         with:
           args: | 
-            meltano run crawler:web_crawler &&
+            meltano run crawler:plvr_crawler &&
             meltano el tap-spreadsheets-anywhere target-bigquery --state-id=plvr_el --catalog catalogs/plvr_catalog.json &&
             meltano invoke dbt-bigquery:deps &&
             meltano invoke dbt-bigquery:test --select source:plvr 
