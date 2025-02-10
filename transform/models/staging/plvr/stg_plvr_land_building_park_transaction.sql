@@ -7,10 +7,10 @@ with
             the_villages_and_towns_urban_district as district_township,
             transaction_sign as transaction_subject,
             land_sector_position_building_sector_house_number_plate
-            as land_slot_or_address,
+            as address_land_slot,
             safe_cast(
                 land_shifting_total_area_square_meter as float64
-            ) as total_tranferred_area_square_meter,
+            ) as land_total_tranferred_area_square_meter,
             the_use_zoning_or_compiles_and_checks as metropolis_zone_type,
             the_nonmetropolis_land_use_district as nonmetropolis_zone_type,
             nonmetropolis_land_use as nonmetropolis_land_use_designation,
@@ -22,7 +22,8 @@ with
             transaction_pen_number as number_of_property_type,
             shifting_level as transferred_floor,
             total_floor_number as total_floors,
-            building_state as building_type,
+            regexp_replace(building_state, r'\(.*?\)', '') as building_type,
+            building_state as building_type_origin,
             main_use as primary_use,
             main_building_materials as primary_building_material,
             case
@@ -35,7 +36,9 @@ with
                 then {{ convert_taiwan_date("construction_to_complete_the_years") }}
                 else null
             end as construction_completion_date,
-            building_shifting_total_area as building_transferred_area_square_meter,
+            safe_cast(
+                building_shifting_total_area as float64
+            ) as building_transferred_area_square_meter,
             safe_cast(
                 building_present_situation_pattern_room as int64
             ) as building_number_of_bedrooms,
@@ -55,7 +58,7 @@ with
             the_berth_category as parking_space_type,
             safe_cast(
                 berth_shifting_total_area_square_meter as float64
-            ) as parking_transferred_sqare_meter,
+            ) as parking_transferred_area_square_meter,
             safe_cast(the_berth_total_price_ntd as int64) as parking_total_price_ntd,
             the_note as note,
             serial_number as transaction_id,
