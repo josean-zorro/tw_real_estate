@@ -20,7 +20,7 @@ with
                         "building_number_of_partitions",
                     ]
                 )
-            }} as layout_surrogate_key,
+            }} as layout_id,
             {{ dbt_utils.generate_surrogate_key(["building_type"]) }}
             as building_type_id
         from {{ ref("stg_plvr_land_building_park_transaction") }}
