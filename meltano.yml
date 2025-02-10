@@ -38,7 +38,7 @@ plugins:
         pattern: data/plvr/\d{4}Q[1-4]/[a-z]_lvr_land_a.csv
         start_date: '2017-05-01T00:00:00Z'
         format: csv
-        key_properties: [serial_number, _smart_source_file]
+        key_properties: [serial_number]
         #- path: gs://tw-real-estate
         #name: transaction_build_information
         #pattern: data/plvr/\d{4}Q[1-4]/[a-z]_lvr_land_a_build.csv
@@ -80,7 +80,7 @@ plugins:
         replace_period_with_underscore: true
         snake_case: false
       upsert: true
-      dedupe_before_upsert: false
+      dedupe_before_upsert: true
       denormalized: true
       fail_fast: true
       flattening_enabled: false
