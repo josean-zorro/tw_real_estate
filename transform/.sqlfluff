@@ -1,5 +1,5 @@
 [sqlfluff]
-#dialect = bigquery
+dialect = bigquery
 templater = jinja
 # Exclude formatting rules
 exclude_rules = layout.indent, layout.cte_bracket, layout.select_targets, layout.spacing, ST07, ST01, ST06
