@@ -17,7 +17,7 @@ with
             case
                 when {{ validate_taiwan_date("transaction_year_month_and_day") }}
                 then {{ convert_taiwan_date("transaction_year_month_and_day") }}
-                else null
+                else cast('1911-01-01' as date)
             end as transaction_date,
             transaction_pen_number as number_of_property_type,
             shifting_level as transferred_floor,

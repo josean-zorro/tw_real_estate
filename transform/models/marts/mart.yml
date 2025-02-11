@@ -236,6 +236,7 @@ models:
         data_type: string
         description: ""
         tests:
+          - not_null
           - relationships:
               to: ref('dim_city_district')
               field: city_district_surrogate_key
@@ -244,6 +245,7 @@ models:
         data_type: string
         description: ""
         tests:
+          - not_null
           - relationships:
               to: ref('dim_layout')
               field: layout_id 
@@ -252,6 +254,7 @@ models:
         data_type: string
         description: ""
         tests:
+          - not_null
           - relationships:
               to: ref('dim_building_type')
               field: building_type_id
@@ -267,6 +270,7 @@ models:
         data_type: date
         description: "交易日期"
         tests:
+          - not_null
           - relationships:
               to: ref('dim_date')
               field: date_day
