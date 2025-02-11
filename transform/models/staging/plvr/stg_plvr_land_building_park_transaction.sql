@@ -34,7 +34,7 @@ with
                         )
                     }}
                 then {{ convert_taiwan_date("construction_to_complete_the_years") }}
-                else null
+                else cast('1911-01-01' as date)
             end as construction_completion_date,
             safe_cast(
                 building_shifting_total_area as float64
