@@ -1,0 +1,333 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: ""
+    columns:
+      - name: date_day
+        data_type: date
+        description: ""
+        tests:
+          - not_null
+          - unique
+
+      - name: prior_date_day
+        data_type: date
+        description: ""
+
+      - name: next_date_day
+        data_type: date
+        description: ""
+
+      - name: prior_year_date_day
+        data_type: date
+        description: ""
+
+      - name: prior_year_over_year_date_day
+        data_type: date
+        description: ""
+
+      - name: day_of_week
+        data_type: int64
+        description: ""
+
+      - name: day_of_week_iso
+        data_type: int64
+        description: ""
+
+      - name: day_of_week_name
+        data_type: string
+        description: ""
+
+      - name: day_of_week_name_short
+        data_type: string
+        description: ""
+
+      - name: day_of_month
+        data_type: int64
+        description: ""
+
+      - name: day_of_year
+        data_type: int64
+        description: ""
+
+      - name: week_start_date
+        data_type: date
+        description: ""
+
+      - name: week_end_date
+        data_type: date
+        description: ""
+
+      - name: prior_year_week_start_date
+        data_type: date
+        description: ""
+
+      - name: prior_year_week_end_date
+        data_type: date
+        description: ""
+
+      - name: week_of_year
+        data_type: int64
+        description: ""
+
+      - name: iso_week_start_date
+        data_type: date
+        description: ""
+
+      - name: iso_week_end_date
+        data_type: date
+        description: ""
+
+      - name: prior_year_iso_week_start_date
+        data_type: date
+        description: ""
+
+      - name: prior_year_iso_week_end_date
+        data_type: date
+        description: ""
+
+      - name: iso_week_of_year
+        data_type: int64
+        description: ""
+
+      - name: prior_year_week_of_year
+        data_type: int64
+        description: ""
+
+      - name: prior_year_iso_week_of_year
+        data_type: int64
+        description: ""
+
+      - name: month_of_year
+        data_type: int64
+        description: ""
+
+      - name: month_name
+        data_type: string
+        description: ""
+
+      - name: month_name_short
+        data_type: string
+        description: ""
+
+      - name: month_start_date
+        data_type: date
+        description: ""
+
+      - name: month_end_date
+        data_type: date
+        description: ""
+
+      - name: prior_year_month_start_date
+        data_type: date
+        description: ""
+
+      - name: prior_year_month_end_date
+        data_type: date
+        description: ""
+
+      - name: quarter_of_year
+        data_type: int64
+        description: ""
+
+      - name: quarter_start_date
+        data_type: date
+        description: ""
+
+      - name: quarter_end_date
+        data_type: date
+        description: ""
+
+      - name: year_number
+        data_type: int64
+        description: ""
+
+      - name: year_start_date
+        data_type: date
+        description: ""
+
+      - name: year_end_date
+        data_type: date
+        description: ""
+
+  - name: dim_layout
+    description: ""
+    columns:
+      - name: number_of_bedrooms_categorized
+        data_type: string
+        description: ""
+
+      - name: building_number_of_bedrooms
+        data_type: int64
+        description: "建物格局- 房間數量"
+
+      - name: building_number_of_living_rooms
+        data_type: int64
+        description: "建物格局- 廳數量"
+
+      - name: building_number_of_bathrooms
+        data_type: int64
+        description: "建物格局- 衛浴數量"
+
+      - name: building_number_of_partitions
+        data_type: string
+        description: "建物格局 - 隔間"
+
+      - name: layout_id
+        data_type: string
+        description: ""
+        tests:
+          - not_null
+          - unique
+
+      - name: last_batched_at
+        data_type: timestamp
+        description: ""
+
+  - name: dim_city_district
+    description: ""
+    columns:
+      - name: city_county
+        data_type: string
+        description: ""
+
+      - name: city_id
+        data_type: string
+        description: ""
+
+      - name: city_district_surrogate_key
+        data_type: string
+        description: ""
+        tests:
+          - not_null
+          - unique
+
+      - name: last_batched_at
+        data_type: timestamp
+        description: ""
+
+  - name: dim_building_type
+    description: ""
+    columns:
+      - name: building_type_id
+        data_type: string
+        description: ""
+        tests:
+          - not_null
+          - unique
+
+      - name: building_type
+        data_type: string
+        description: "建築型態（分類）building_type (categorized)"
+
+      - name: building_type_origin
+        data_type: string
+        description: "建築型態（原始資料）"
+
+      - name: last_batched_at
+        data_type: timestamp
+        description: ""
+
+  - name: fct_real_estate_transaction
+    description: ""
+    columns:
+      - name: city_district_surrogate_key
+        data_type: string
+        description: ""
+        tests:
+          - relationships:
+              to: ref('dim_city_district')
+              field: city_district_surrogate_key
+
+      - name: layout_id
+        data_type: string
+        description: ""
+        tests:
+          - relationships:
+              to: ref('dim_layout')
+              field: layout_id 
+
+      - name: building_type_id
+        data_type: string
+        description: ""
+        tests:
+          - relationships:
+              to: ref('dim_building_type')
+              field: building_type_id
+
+      - name: transaction_id
+        data_type: string
+        description: "交易編號"
+        tests:
+          - not_null
+          - unique
+
+      - name: transaction_date
+        data_type: date
+        description: "交易日期"
+        tests:
+          - relationships:
+              to: ref('dim_date')
+              field: date_day
+
+      - name: address_land_slot
+        data_type: string
+        description: "地址 / 地段 (location or land slot)"
+
+      - name: construction_completion_date
+        data_type: date
+        description: "建築完工日"
+
+      - name: land_total_tranferred_area_square_meter
+        data_type: float64
+        description: "土地移轉面積(平方公尺） (transferred land area (square meter))"
+
+      - name: building_transferred_area_square_meter
+        data_type: float64
+        description: "總建物移轉面積（包含主建物、公設、停車位、附屬建物、陽台等）"
+
+      - name: parking_transferred_area_square_meter
+        data_type: float64
+        description: "車位移轉面積"
+
+      - name: main_building_area_square_meter
+        data_type: float64
+        description: "主建議面積"
+
+      - name: auxiliary_building_area_square_meter
+        data_type: float64
+        description: "附屬建物面積"
+
+      - name: balcony_area_square_meter
+        data_type: float64
+        description: "陽台面積"
+
+      - name: total_price_ntd
+        data_type: float64
+        description: "總價"
+
+      - name: price_per_square_meter
+        data_type: int64
+        description: "每平方公尺單價"
+
+      - name: parking_total_price_ntd
+        data_type: int64
+        description: "車位總價"
+
+      - name: building_price_per_square_meter
+        data_type: float64
+        description: "(總價 - 車位總價 )/ （總建物面積 - 停車位面積）每平方公尺單價"
+
+      - name: net_private_building_price_per_square_meter
+        data_type: float64
+        description: "建物（不含公設，不含停車位）每平方公尺單價"
+
+      - name: net_exclusive_area_price_per_square_meter
+        data_type: float64
+        description: "建物（不含公設，不含停車位，不含陽台、不含附屬建物）每平方公尺單價"
+
+      - name: _sdc_batched_at
+        data_type: timestamp
+        description: "匯入資料倉儲時間"
+

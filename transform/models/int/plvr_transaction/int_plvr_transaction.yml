@@ -1,0 +1,194 @@
+version: 2
+
+models:
+  - name: int_plvr_transaction
+    description: ""
+    columns:
+      - name: district_township
+        data_type: string
+        description: "鄉鎮市區 (township and district)"
+
+      - name: transaction_subject
+        data_type: string
+        description: "交易標的 (land, building, parking space or combinations)"
+
+      - name: address_land_slot
+        data_type: string
+        description: "地址 / 地段 (location or land slot)"
+
+      - name: land_total_tranferred_area_square_meter
+        data_type: float64
+        description: "土地移轉面積(平方公尺） (transferred land area (square meter))"
+
+      - name: metropolis_zone_type
+        data_type: string
+        description: "都市土地使用分區"
+
+      - name: nonmetropolis_zone_type
+        data_type: string
+        description: "非都市土地使用分區"
+
+      - name: nonmetropolis_land_use_designation
+        data_type: string
+        description: "非都市土地使用編定"
+
+      - name: transaction_date
+        data_type: date
+        description: "交易日期"
+
+      - name: number_of_property_type
+        data_type: string
+        description: "交易筆數棟數 (number of lands, building, and parking slots transferred)"
+
+      - name: transferred_floor
+        data_type: string
+        description: "移轉樓層 (which level of floors transferred)"
+
+      - name: total_floors
+        data_type: string
+        description: "總樓層 (the total floor number of transferred building)"
+
+      - name: building_type
+        data_type: string
+        description: "建築型態（分類）building_type (categorized)"
+
+      - name: building_type_origin
+        data_type: string
+        description: "建築型態（原始資料）"
+
+      - name: primary_use
+        data_type: string
+        description: "主要用途"
+
+      - name: primary_building_material
+        data_type: string
+        description: "主要建材"
+
+      - name: construction_completion_date
+        data_type: date
+        description: "建築完工日"
+
+      - name: building_transferred_area_square_meter
+        data_type: float64
+        description: "建物移轉面積"
+
+      - name: building_number_of_bedrooms
+        data_type: int64
+        description: "建物格局- 房間數量"
+
+      - name: building_number_of_living_rooms
+        data_type: int64
+        description: "建物格局- 廳數量"
+
+      - name: building_number_of_bathrooms
+        data_type: int64
+        description: "建物格局- 衛浴數量"
+
+      - name: building_number_of_partitions
+        data_type: string
+        description: "建物格局 - 隔間"
+
+      - name: has_management_organization
+        data_type: string
+        description: "是否有管理組織"
+
+      - name: total_price_ntd
+        data_type: float64
+        description: "總價"
+
+      - name: price_per_square_meter
+        data_type: int64
+        description: "每平方公尺單價"
+
+      - name: parking_space_type
+        data_type: string
+        description: "車位類型"
+
+      - name: parking_transferred_area_square_meter
+        data_type: float64
+        description: "車位移轉面積"
+
+      - name: parking_total_price_ntd
+        data_type: int64
+        description: "車位總價"
+
+      - name: note
+        data_type: string
+        description: "備註"
+
+      - name: transaction_id
+        data_type: string
+        description: "交易編號"
+
+      - name: main_building_area_square_meter
+        data_type: float64
+        description: "主建議面積"
+
+      - name: auxiliary_building_area_square_meter
+        data_type: float64
+        description: "附屬建物面積"
+
+      - name: balcony_area_square_meter
+        data_type: float64
+        description: "陽台面積"
+
+      - name: has_elevator
+        data_type: string
+        description: "是否有電梯"
+
+      - name: transferred_number
+        data_type: string
+        description: ""
+
+      - name: city_id
+        data_type: string
+        description: ""
+
+      - name: _smart_source_bucket
+        data_type: string
+        description: ""
+
+      - name: _smart_source_file
+        data_type: string
+        description: ""
+
+      - name: _smart_source_lineno
+        data_type: string
+        description: ""
+
+      - name: _sdc_received_at
+        data_type: timestamp
+        description: ""
+
+      - name: _sdc_deleted_at
+        data_type: timestamp
+        description: ""
+
+      - name: _sdc_batched_at
+        data_type: timestamp
+        description: "匯入資料倉儲時間"
+
+      - name: _sdc_extracted_at
+        data_type: timestamp
+        description: ""
+
+      - name: _sdc_sequence
+        data_type: int64
+        description: ""
+
+      - name: _sdc_table_version
+        data_type: int64
+        description: ""
+
+      - name: city_district_surrogate_key
+        data_type: string
+        description: ""
+
+      - name: layout_id
+        data_type: string
+        description: ""
+
+      - name: building_type_id
+        data_type: string
+        description: ""
+
