@@ -1,9 +1,6 @@
 name: Run dbt models
 
 on:
-  pull_request:
-    types:
-      - closed
   workflow_dispatch:  # Allows you to trigger the workflow manually
 
 jobs:
