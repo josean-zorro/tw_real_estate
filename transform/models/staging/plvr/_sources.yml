@@ -5,7 +5,7 @@ sources:
     description: ""
     tables:
       - name: land_building_park_transaction
-        description: ""
+        description: "Real Estate Transaction, includes land, building, and parking space."
         tests:
           - dbt_utils.expression_is_true:
               expression: SAFE_CAST(land_shifting_total_area_square_meter AS FLOAT64) IS NOT NULL
@@ -82,16 +82,16 @@ sources:
         columns:
           - name: the_villages_and_towns_urban_district
             data_type: string
-            description: ""
-          - name: transaction_sign
+            description: "鄉鎮市區 (township and district)"
+          - name: transaction_sign 
             data_type: string
-            description: ""
+            description: "交易標的 (transaction_subject: land, building, and/or parking space)."
           - name: land_sector_position_building_sector_house_number_plate
             data_type: string
-            description: ""
+            description: "location: address and land slot"
           - name: land_shifting_total_area_square_meter
             data_type: string
-            description: ""
+            description: "Area of Land Transferred"
           - name: the_use_zoning_or_compiles_and_checks
             data_type: string
             description: ""
