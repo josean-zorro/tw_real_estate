@@ -1,4 +1,4 @@
-name: Run dbt models schema changed
+name: Run dbt models
 
 on:
   pull_request:
@@ -14,7 +14,6 @@ jobs:
       id-token: 'write'
       actions: 'read'
       
-    if: github.event.pull_request.merged == true
     steps:
       # Checkout the repository so that a path to the action.yml can be used
       - uses: actions/checkout@v3
@@ -25,17 +24,8 @@ jobs:
         with:
           workload_identity_provider: '${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}'
           service_account: '${{ secrets.GCP_SERVICE_ACCOUNT }}'
-      # Get the database files from the previous run, if exists
-      - name: Download latest SQLite database artifact
-        uses: dawidd6/action-download-artifact@v8
-        continue-on-error: true
-        with:
-          workflow: ${{ github.workflow }}
-          branch: main
-          name: meltano.db
-          path: ${{ github.workspace }}
-          workflow_conclusion: completed # Download artifacts from the latest completed run, even if it failed. This enables Meltano to start off from where a tap failed.
-      - name: Meltano
+      # PLVR source is tested after crawling 
+      - name: Run dbt models # do not test source plvr
         if: always() # Always run this step even if the prior failed due to no artifact found (this should only take effect if first time running)
         uses: ./
         env:
@@ -45,11 +35,5 @@ jobs:
           PYTHONUNBUFFERED: 1
         with:
           args: |
-            mletano invoke dbt-bigquery:deps&&meltano invoke dbt-bigquery:build
-      # Upload the sqlite database containing incremental, bookmark state
-      - name: Upload SQLite database artifact
-        if: always() # Always run this step even if the prior failed
-        uses: actions/upload-artifact@v4
-        with:
-          name: meltano.db
-          path: ${{ github.workspace }}/meltano.db*
+            mletano invoke dbt-bigquery:deps &&
+            meltano invoke dbt-bigquery:build --exclude source:plvr
