@@ -69,6 +69,11 @@ sources:
                 name: balcony_area_is_float
                 where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
           - dbt_utils.expression_is_true:
+              expression: "coalesce(regexp_contains(transaction_pen_number, r'^土地\\d+建物\\d+車位\\d+$'),false)" 
+              config:
+                name: transaction_pen_number_is_valid_format
+                where: 'date(_sdc_batched_at) = current_date("Asia/Taipei")'
+          - dbt_utils.expression_is_true:
               expression: "{{ validate_taiwan_date('transaction_year_month_and_day') }}"
               config:
                 name: transaction_year_month_and_day_is_valid_date
@@ -107,6 +112,7 @@ sources:
           - name: transaction_pen_number
             data_type: string
             description: ""
+                  
           - name: shifting_level
             data_type: string
             description: ""
