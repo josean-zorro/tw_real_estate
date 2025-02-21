@@ -1,5 +1,5 @@
 {% import 'convert_taiwan_date.sql' as house_and_renting %}
-{% macro validate_taiwan_date(column, earliest_date="1996-07-01", latest_date=None) %}
+{% macro validate_taiwan_date(column, earliest_date="1912-01-01", latest_date=None) %}
     {# Set the latest_date expression: use CURRENT_DATE() if latest_date is not provided #}
     {% if latest_date is none %} {% set latest_date_expr = "CURRENT_DATE()" %}
     {% else %} {% set latest_date_expr = "DATE('" ~ latest_date ~ "')" %}
