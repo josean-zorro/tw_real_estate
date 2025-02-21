@@ -2,15 +2,38 @@ with
     new_columns as (
         select
             {{ dbt_utils.star(ref("stg_plvr_land_building_park_transaction")) }},
-            regexp_extract(
-                number_of_property_type, r'^土地(\d+)建物\d+車位\d+$'
+            safe_cast(
+                regexp_extract(number_of_property_type, r'^土地(\d+)建物\d+車位\d+$') as int64
             ) as number_of_lands,
-            regexp_extract(
-                number_of_property_type, r'^土地\d+建物(\d+)車位\d+$'
+            safe_cast(
+                regexp_extract(number_of_property_type, r'^土地\d+建物(\d+)車位\d+$') as int64
             ) as number_of_buildings,
-            regexp_extract(
-                number_of_property_type, r'^土地\d+建物\d+車位(\d+)$'
+            safe_cast(
+                regexp_extract(number_of_property_type, r'^土地\d+建物\d+車位(\d+)$') as int64
             ) as number_of_parking_spaces,
+            (
+                case
+                    when
+                        safe_cast(
+                            regexp_extract(
+                                number_of_property_type, r'^土地\d+建物(\d+)車位\d+$'
+                            ) as int64
+                        )
+
+                        != 0
+                    then '建物交易'
+                    when
+                        safe_cast(
+                            regexp_extract(
+                                number_of_property_type, r'^土地\d+建物\d+車位(\d+)$'
+                            ) as int64
+                        )
+                        != 0
+                    then '停車場交易'
+                    else '土地交易'
+                end
+            ) as transaction_type,
+
             {{
                 dbt_utils.generate_surrogate_key(
                     [
