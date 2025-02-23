@@ -19,6 +19,7 @@ with
             building_type_id,
             transaction_id,
             transaction_date,
+            transaction_type,
             address_land_slot,
             construction_completion_date,
             number_of_lands,
