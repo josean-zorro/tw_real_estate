@@ -81,6 +81,7 @@ with
             _sdc_table_version
 
         from source
+        where district_township is not null and district_township != '金fa4b鄉'
 
     )
 
