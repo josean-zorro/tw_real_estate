@@ -5,8 +5,10 @@ with
         select
             city_id,
             city_district_surrogate_key,
+            district_township,
             max(_sdc_batched_at) as last_batched_at
         from {{ ref("int_plvr_transaction") }}
+        where district_township is not null and district_township != '金fa4b鄉'
         group by all
     ),
 

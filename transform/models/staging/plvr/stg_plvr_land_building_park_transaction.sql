@@ -69,7 +69,7 @@ with
             safe_cast(balcony_area as float64) as balcony_area_square_meter,
             elevator as has_elevator,
             transaction_number as transferred_number,
-            upper(regexp_extract(_smart_source_file, r'/(a-za-z])_')) as city_id,
+            upper(regexp_extract(_smart_source_file, r'/([a-z])_')) as city_id,
             _smart_source_bucket,
             _smart_source_file,
             _smart_source_lineno,
