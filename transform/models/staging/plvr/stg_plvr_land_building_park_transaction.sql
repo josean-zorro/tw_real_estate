@@ -4,7 +4,11 @@ with
     renamed as (
 
         select
-            the_villages_and_towns_urban_district as district_township,
+            case
+                when the_villages_and_towns_urban_district = '金fa4b鄉'
+                then '金寧鄉'
+                else the_villages_and_towns_urban_district
+            end as district_township,
             transaction_sign as transaction_subject,
             land_sector_position_building_sector_house_number_plate
             as address_land_slot,
@@ -83,8 +87,7 @@ with
         from source
         where
             the_villages_and_towns_urban_district is not null
-            and the_villages_and_towns_urban_district != '金fa4b鄉'
-
+            and the_villages_and_towns_urban_district !=
     )
 
 select *

@@ -37,7 +37,7 @@ with
             {{
                 dbt_utils.generate_surrogate_key(
                     [
-                        "upper(regexp_extract(_smart_source_file, r'/(a-za-z])_'))",
+                        "city_id",
                         "district_township",
                     ]
                 )
