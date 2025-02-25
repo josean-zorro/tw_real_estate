@@ -85,9 +85,7 @@ with
             _sdc_table_version
 
         from source
-        where
-            the_villages_and_towns_urban_district is not null
-            and the_villages_and_towns_urban_district !=
+        where the_villages_and_towns_urban_district is not null
     )
 
 select *
