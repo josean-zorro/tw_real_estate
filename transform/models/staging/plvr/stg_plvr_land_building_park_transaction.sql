@@ -57,13 +57,13 @@ with
             whether_there_is_manages_the_organization as has_management_organization,
             safe_cast(total_price_ntd as float64) as total_price_ntd,
             safe_cast(
-                the_unit_price_ntd_square_meter as int64
+                the_unit_price_ntd_square_meter as float64
             ) as price_per_square_meter,
             the_berth_category as parking_space_type,
             safe_cast(
                 berth_shifting_total_area_square_meter as float64
             ) as parking_transferred_area_square_meter,
-            safe_cast(the_berth_total_price_ntd as int64) as parking_total_price_ntd,
+            safe_cast(the_berth_total_price_ntd as float64) as parking_total_price_ntd,
             the_note as note,
             serial_number as transaction_id,
             safe_cast(main_building_area as float64) as main_building_area_square_meter,
