@@ -33,4 +33,4 @@ jobs:
         with:
           args: |
             meltano invoke dbt-bigquery:deps &&
-            meltano invoke dbt-bigquery:build --exclude source:plvr
+            meltano invoke dbt-bigquery:build --exclude source:plvr --full-refresh
