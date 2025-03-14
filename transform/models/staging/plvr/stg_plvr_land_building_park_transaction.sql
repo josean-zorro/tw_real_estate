@@ -7,6 +7,8 @@ with
             case
                 when the_villages_and_towns_urban_district = '金fa4b鄉'
                 then '金寧鄉'
+                when regexp_contains(district_township, r'[\x00-\x1F]')
+                then '金峰鄉'
                 else the_villages_and_towns_urban_district
             end as district_township,
             transaction_sign as transaction_subject,
