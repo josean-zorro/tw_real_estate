@@ -12,7 +12,9 @@ with
     ),
 
     taiwan_city_code as (
-        select city_county, city_id from {{ ref("taiwan_city_code") }}
+        select city_county, city_id
+        from {{ ref("taiwan_city_code") }}
+        where valid_to = '9999-01-01'
     ),
 
     result as (

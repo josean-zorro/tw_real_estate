@@ -1,0 +1,20 @@
+version: 2
+
+seeds:
+  - name: taiwan_city_code
+    config:
+      column_types:
+        valid_from: date
+        valid_to: date
+    description: A mapping of city codes of city names and the historical changes
+    tests:
+      - dbt_utils.mutually_exclusive_ranges:
+          lower_bound_column: valid_from
+          upper_bound_column: valid_to
+          partition_by: city_id
+          zero_length_range_allowed: true
+    columns:
+      - name: city_id
+      - name: city_county
+      - name: valid_from
+      - name: valid_to
