@@ -18,7 +18,12 @@ with
     ),
 
     result as (
-        select taiwan_city_code.city_county, address.*
+        select
+            taiwan_city_code.city_county,
+            address.*,
+            concat(
+                taiwan_city_code.city_county, address.district_township
+            ) as city_district
         from address
         left join taiwan_city_code using (city_id)
         where
