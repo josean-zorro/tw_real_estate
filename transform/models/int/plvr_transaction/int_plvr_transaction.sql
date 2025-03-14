@@ -21,7 +21,7 @@ with
                         )
 
                         != 0
-                    then '建物交易'
+                    then '建物'
                     when
                         safe_cast(
                             regexp_extract(
@@ -29,8 +29,8 @@ with
                             ) as int64
                         )
                         != 0
-                    then '停車場交易'
-                    else '土地交易'
+                    then '純車位'
+                    else '純土地'
                 end
             ) as transaction_type,
 
