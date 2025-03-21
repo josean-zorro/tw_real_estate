@@ -1,5 +1,5 @@
 {% macro convert_taiwan_date(column) %}
-    {# First, clean the input by removing leading zeros, occurrences of ".0", and whitespace #}
+    {# First, clean the input by removing leading zeros, occurrences of ".0", special characters, and whitespace #}
     {% set cleaned = "REGEXP_REPLACE(" ~ column ~ ", r'(^0+)|(\.0)|(\s+)|(-)', '')" %}
 
     {# Now, adjust the cleaned value based on its content #}
