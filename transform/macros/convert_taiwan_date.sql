@@ -26,9 +26,7 @@
         ~ cleaned
         ~ ",'01')  WHEN SAFE_CAST("
         ~ cleaned
-        ~ " as int64 ) <= safe_cast(     CONCAT(       CAST(CAST(REGEXP_EXTRACT(_smart_source_file, r'/(\d{4})Q') AS INT64) - 1911 AS STRING),       CASE REGEXP_EXTRACT(_smart_source_file, r'Q(\d)')         WHEN '1' THEN '0331'         WHEN '2' THEN '0630'         WHEN '3' THEN '0930'         WHEN '4' THEN '1231'       END     )      AS int64) then "
-        ~ cleaned
-        ~ " ELSE "
+        ~ " as int64 ) >= safe_cast(     CONCAT(       CAST(CAST(REGEXP_EXTRACT(_smart_source_file, r'/(\d{4})Q') AS INT64) - 1911 AS STRING),       CASE REGEXP_EXTRACT(_smart_source_file, r'Q(\d)')         WHEN '1' THEN '0331'         WHEN '2' THEN '0630'         WHEN '3' THEN '0930'         WHEN '4' THEN '1231'       END     )      AS int64) then          CONCAT(     CAST(CAST(SUBSTR(transaction_year_month_and_day, 1, 3) AS INT64) - 1 AS STRING),     SUBSTR(transaction_year_month_and_day, 4)     )          ELSE "
         ~ cleaned
         ~ "     END   "
     ) %}
