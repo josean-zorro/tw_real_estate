@@ -33,7 +33,6 @@ jobs:
         with:
           args: |
             meltano invoke dbt-bigquery:deps &&
-            meltano invoke dbt-bigquery:build --exclude source:plvr --full-refresh &&
             meltano invoke dbt-bigquery:docs-generate
 
       - name: Setup GitHub Pages
@@ -42,7 +41,7 @@ jobs:
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .meltano/transformers/dbt/target  # dbt docs output
+          path: dbt-docs   # dbt docs output
 
       - name: Deploy to GitHub Pages
         id: deployment
