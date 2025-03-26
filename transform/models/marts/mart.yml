@@ -1,6 +1,12 @@
 version: 2
 
 models:
+  - name: dim_transaction_type
+    columns:
+      - name: transaction_type
+        tests:
+          - not_null
+          - unique
   - name: dim_date
     description: ""
     columns:
@@ -232,6 +238,11 @@ models:
   - name: fct_real_estate_transaction
     description: ""
     columns:
+      - name: transaction_type
+        tests:
+          - relationships:
+              to: ref('dim_transaction_type')
+              field: transaction_type
       - name: city_district_surrogate_key
         data_type: string
         description: ""
