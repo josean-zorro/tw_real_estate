@@ -1,0 +1,29 @@
+{
+  "name": "Latest Month",
+  "expression": [
+    "",
+    "--- Definition of Last month depends on how plvr update the data, please refer to https://plvr.land.moi.gov.tw/DownloadOpenData ",
+    "VAR TodayDay = DAY(TODAY())  -- Get the current day of the month",
+    "VAR LastMonthStart = ",
+    "IF(",
+    "    day(TODAY()) <= 20,",
+    "    DATE(YEAR(TODAY()), MONTH(TODAY()) - 2, 1),",
+    "    DATE(YEAR(TODAY()), MONTH(TODAY()) - 1, 1)",
+    "    )  -- First day of last month",
+    "VAR LastMonthEnd = IF(",
+    "    day(TODAY()) <= 20,",
+    "     EOMONTH(TODAY(), -2),",
+    "     EOMONTH(TODAY(), -1)",
+    "    )    -- Last day of last month",
+    "",
+    "-- Calculate the average price in the selected date range",
+    "RETURN",
+    "    CALCULATE(",
+    "        SELECTEDMEASURE(),",
+    "        datesbetween(dim_date[日期],LastMonthStart, LastMonthEnd),",
+    "        ALL(dim_date[日期])",
+    "    )",
+    ""
+  ],
+  "ordinal": 4
+}

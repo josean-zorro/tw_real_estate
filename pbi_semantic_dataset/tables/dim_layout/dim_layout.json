@@ -1,0 +1,10 @@
+{
+  "name": "dim_layout",
+  "lineageTag": "521b3d90-7f6d-4a6c-8e8b-6ede88f01d61",
+  "annotations": [
+    {
+      "name": "PBI_ResultType",
+      "value": "Table"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "每坪單價年增率 (MTD)",
+  "expression": "CALCULATE([平均每坪單價(萬)], 'Time intelligence'[Time Calculation] = \"MTD YoY\")",
+  "formatString": "0.00%;-0.00%;0.00%",
+  "displayFolder": "Time Intelligence",
+  "lineageTag": "b95e7ad5-82bc-48f8-89c6-7c522a027c8f"
+}

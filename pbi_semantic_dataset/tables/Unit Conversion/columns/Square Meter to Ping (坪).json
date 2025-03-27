@@ -1,0 +1,13 @@
+{
+  "name": "Square Meter to Ping (坪)",
+  "dataType": "string",
+  "sourceColumn": "Square Meter to Ping (坪)",
+  "lineageTag": "490b885c-3979-4685-86b9-f529648a096d",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

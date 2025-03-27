@@ -1,0 +1,14 @@
+{
+  "name": "number_of_lands",
+  "dataType": "int64",
+  "sourceColumn": "number_of_lands",
+  "formatString": "0",
+  "lineageTag": "37f4068c-6bdd-40cf-bcaf-9d6f9ba2ba55",
+  "summarizeBy": "sum",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

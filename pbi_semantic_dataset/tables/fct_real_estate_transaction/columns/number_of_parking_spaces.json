@@ -1,0 +1,14 @@
+{
+  "name": "number_of_parking_spaces",
+  "dataType": "int64",
+  "sourceColumn": "number_of_parking_spaces",
+  "formatString": "0",
+  "lineageTag": "56948c74-cce2-40d5-b5f4-3f169f463df7",
+  "summarizeBy": "sum",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

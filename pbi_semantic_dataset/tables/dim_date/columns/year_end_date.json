@@ -1,0 +1,18 @@
+{
+  "name": "year_end_date",
+  "dataType": "dateTime",
+  "sourceColumn": "year_end_date",
+  "formatString": "Long Date",
+  "lineageTag": "3054f226-43ec-42a3-a114-196300db2f31",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "UnderlyingDateTimeDataType",
+      "value": "Date"
+    }
+  ]
+}

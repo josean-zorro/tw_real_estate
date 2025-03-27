@@ -1,0 +1,13 @@
+{
+  "name": "building_number_of_partitions",
+  "dataType": "string",
+  "sourceColumn": "building_number_of_partitions",
+  "lineageTag": "facabaf5-0335-4a33-9c84-63aa2942043b",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

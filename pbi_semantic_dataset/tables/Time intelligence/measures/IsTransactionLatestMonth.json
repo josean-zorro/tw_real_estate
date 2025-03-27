@@ -1,0 +1,17 @@
+{
+  "name": "IsTransactionLatestMonth",
+  "expression": [
+    "",
+    "VAR YearMonthLatest = [LatestMonth]",
+    "VAR YearMonthRow = FORMAT(SELECTEDVALUE('fct_real_estate_transaction'[交易日]), \"YYYY-MM\")",
+    "RETURN",
+    "IF(YearMonthRow = YearMonthLatest, 1, 0)"
+  ],
+  "lineageTag": "b8b59c22-9844-4232-8c58-9b5e9d054d34",
+  "annotations": [
+    {
+      "name": "PBI_FormatHint",
+      "value": "{\"isGeneralNumber\":true}"
+    }
+  ]
+}

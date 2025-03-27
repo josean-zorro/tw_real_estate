@@ -1,0 +1,13 @@
+{
+  "name": "建物類別",
+  "dataType": "string",
+  "sourceColumn": "建物類別",
+  "lineageTag": "3dca4891-a433-47e4-b3a9-85fc9b2fea4d",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "date_day 階層",
+  "lineageTag": "d2c86614-d98f-48da-845b-1cd8a403e771",
+  "levels": [
+    {
+      "name": "年 (Year)",
+      "ordinal": 0,
+      "column": "年 (Year)",
+      "lineageTag": "0d8ddb82-6cf7-4208-9713-98a880a3e47b"
+    },
+    {
+      "name": "季 (Quarter)",
+      "ordinal": 1,
+      "column": "quarter_of_year",
+      "lineageTag": "d250fc2e-b776-40e5-bbce-bc161909fe4e"
+    },
+    {
+      "name": "year_month_number",
+      "ordinal": 2,
+      "column": "year_month_number",
+      "lineageTag": "5d9a6f75-0073-4fc7-959e-fef7ed693043"
+    },
+    {
+      "name": "月  (Month)",
+      "ordinal": 3,
+      "column": "month_name_short",
+      "lineageTag": "94a40b9c-9aa0-4b1d-8575-9dcf0c366da4"
+    },
+    {
+      "name": "日 (Day)",
+      "ordinal": 4,
+      "column": "日期",
+      "lineageTag": "f7fc26b4-6493-493c-a8fc-f5340fa68565"
+    }
+  ]
+}

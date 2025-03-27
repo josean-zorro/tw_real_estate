@@ -1,0 +1,14 @@
+{
+  "name": "dim_city_district",
+  "lineageTag": "7adcf34a-3013-4cc9-aa88-413c2267567f",
+  "annotations": [
+    {
+      "name": "PBI_ResultType",
+      "value": "Table"
+    },
+    {
+      "name": "PBI_NavigationStepName",
+      "value": "導覽"
+    }
+  ]
+}

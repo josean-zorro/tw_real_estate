@@ -1,0 +1,14 @@
+{
+  "name": "年 (Year)",
+  "dataType": "int64",
+  "sourceColumn": "年 (Year)",
+  "formatString": "0",
+  "lineageTag": "1dfdfefb-1786-43d2-978b-1f5a318d3149",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "User"
+    }
+  ]
+}

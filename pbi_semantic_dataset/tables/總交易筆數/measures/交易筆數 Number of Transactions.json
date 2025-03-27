@@ -1,0 +1,6 @@
+{
+  "name": "交易筆數 Number of Transactions",
+  "expression": "COUNTA(fct_real_estate_transaction[transaction_id]) ",
+  "formatString": "0",
+  "lineageTag": "29715e4f-8d0d-4b7c-b746-a28bcacb377d"
+}

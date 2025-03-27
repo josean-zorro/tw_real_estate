@@ -1,0 +1,7 @@
+{
+  "name": "最新一個月的前一月總交易筆數",
+  "expression": "calculate([交易筆數 Number of Transactions], 'Time intelligence'[Time Calculation] = \"Previous Month of Latest Month\")",
+  "formatString": "0",
+  "displayFolder": "Time Intelligence",
+  "lineageTag": "f42e5533-953f-4d9a-94de-6189fe92a15b"
+}

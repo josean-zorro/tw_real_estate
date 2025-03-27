@@ -1,0 +1,14 @@
+{
+  "name": "month_of_year",
+  "dataType": "int64",
+  "sourceColumn": "month_of_year",
+  "formatString": "0",
+  "lineageTag": "d062393c-2a33-4b0a-bc35-00424a1ae799",
+  "summarizeBy": "sum",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

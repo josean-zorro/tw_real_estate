@@ -1,0 +1,11 @@
+{
+  "name": "最大日",
+  "expression": "MAX(dim_date[日期])",
+  "lineageTag": "c23df767-0f2c-4ce1-a35a-1771964d07de",
+  "annotations": [
+    {
+      "name": "PBI_FormatHint",
+      "value": "{\"isGeneralNumber\":true}"
+    }
+  ]
+}

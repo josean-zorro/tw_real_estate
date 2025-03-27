@@ -1,0 +1,13 @@
+{
+  "name": "transaction_type",
+  "dataType": "string",
+  "sourceColumn": "transaction_type",
+  "lineageTag": "3d335766-6924-455d-86c5-76a3d60db65a",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

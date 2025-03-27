@@ -1,0 +1,5 @@
+{
+  "name": "Current",
+  "expression": "SELECTEDMEASURE()",
+  "ordinal": 0
+}

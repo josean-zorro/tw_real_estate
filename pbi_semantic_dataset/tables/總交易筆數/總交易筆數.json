@@ -1,0 +1,10 @@
+{
+  "name": "總交易筆數",
+  "lineageTag": "31e14517-fd16-4c19-8f1c-fb2fa9eb2a32",
+  "annotations": [
+    {
+      "name": "PBI_ResultType",
+      "value": "Table"
+    }
+  ]
+}

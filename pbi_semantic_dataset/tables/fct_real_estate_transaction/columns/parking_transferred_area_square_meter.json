@@ -1,0 +1,17 @@
+{
+  "name": "parking_transferred_area_square_meter",
+  "dataType": "double",
+  "sourceColumn": "parking_transferred_area_square_meter",
+  "lineageTag": "ea20f990-54ce-4220-b64d-6a513ac5dd4b",
+  "summarizeBy": "sum",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "PBI_FormatHint",
+      "value": "{\"isGeneralNumber\":true}"
+    }
+  ]
+}

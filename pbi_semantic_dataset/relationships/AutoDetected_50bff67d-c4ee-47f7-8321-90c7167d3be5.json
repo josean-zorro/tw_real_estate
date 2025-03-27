@@ -1,0 +1,7 @@
+{
+  "name": "AutoDetected_50bff67d-c4ee-47f7-8321-90c7167d3be5",
+  "fromTable": "fct_real_estate_transaction",
+  "fromColumn": "city_district_surrogate_key",
+  "toTable": "dim_city_district",
+  "toColumn": "city_district_surrogate_key"
+}

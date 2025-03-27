@@ -1,0 +1,16 @@
+{
+  "name": "最新一個月價格變動% (MoM)",
+  "expression": [
+    "if(",
+    "                isblank([最新一個月平均每坪單價 (萬)]),",
+    "                blank(),",
+    "                DIVIDE(",
+    "                    [最新一個月平均每坪單價 (萬)] - [最新一個月的前一月平均每坪單價], ",
+    "                    [最新一個月的前一月平均每坪單價], ",
+    "                    BLANK()",
+    "                ))"
+  ],
+  "formatString": "0.00%;-0.00%;0.00%",
+  "displayFolder": "Time Intelligence",
+  "lineageTag": "6ddf0ed3-8843-4774-a6ef-3824959c77e7"
+}

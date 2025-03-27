@@ -1,0 +1,17 @@
+{
+  "name": "building_price_per_square_meter",
+  "dataType": "double",
+  "sourceColumn": "building_price_per_square_meter",
+  "lineageTag": "95ea87d2-95c3-4f3a-9353-4329bfce4e23",
+  "summarizeBy": "sum",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "PBI_FormatHint",
+      "value": "{\"isGeneralNumber\":true}"
+    }
+  ]
+}

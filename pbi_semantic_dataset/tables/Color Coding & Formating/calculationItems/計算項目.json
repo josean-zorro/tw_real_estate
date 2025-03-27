@@ -1,0 +1,4 @@
+{
+  "name": "計算項目",
+  "expression": "SELECTEDMEASURE()"
+}

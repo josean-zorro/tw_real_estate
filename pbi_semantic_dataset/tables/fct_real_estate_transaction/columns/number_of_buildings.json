@@ -1,0 +1,14 @@
+{
+  "name": "number_of_buildings",
+  "dataType": "int64",
+  "sourceColumn": "number_of_buildings",
+  "formatString": "0",
+  "lineageTag": "86b696e0-24a1-44b1-8cbb-7826d299ec90",
+  "summarizeBy": "sum",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

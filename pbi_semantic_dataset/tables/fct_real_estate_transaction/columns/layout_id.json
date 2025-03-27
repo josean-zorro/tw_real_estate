@@ -1,0 +1,13 @@
+{
+  "name": "layout_id",
+  "dataType": "string",
+  "sourceColumn": "layout_id",
+  "lineageTag": "da3b066d-d94b-4b1c-9d37-3c6fe26fa0e5",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

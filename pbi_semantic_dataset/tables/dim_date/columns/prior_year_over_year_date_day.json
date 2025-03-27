@@ -1,0 +1,18 @@
+{
+  "name": "prior_year_over_year_date_day",
+  "dataType": "dateTime",
+  "sourceColumn": "prior_year_over_year_date_day",
+  "formatString": "Long Date",
+  "lineageTag": "2b2defd6-d330-44ce-a1a9-505b075ecb47",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "UnderlyingDateTimeDataType",
+      "value": "Date"
+    }
+  ]
+}

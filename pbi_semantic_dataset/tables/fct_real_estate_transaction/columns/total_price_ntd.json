@@ -1,0 +1,22 @@
+{
+  "name": "total_price_ntd",
+  "dataType": "int64",
+  "sourceColumn": "total_price_ntd",
+  "lineageTag": "7b2b5e83-b206-4354-be5e-fa94b5e3b69b",
+  "summarizeBy": "sum",
+  "changedProperties": [
+    {
+      "property": "DataType"
+    }
+  ],
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "PBI_FormatHint",
+      "value": "{\"isGeneralNumber\":true}"
+    }
+  ]
+}

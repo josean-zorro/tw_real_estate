@@ -1,0 +1,14 @@
+{
+  "name": "計算群組資料行",
+  "dataType": "string",
+  "sourceColumn": "Name",
+  "sortByColumn": "序數",
+  "lineageTag": "e4b33ff2-ddc2-4e89-929a-9477f05a864f",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

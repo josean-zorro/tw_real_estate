@@ -1,0 +1,7 @@
+{
+  "name": "AutoDetected_1ac073b1-ffec-4fe9-824a-75d749a5637f",
+  "fromTable": "fct_real_estate_transaction",
+  "fromColumn": "building_type_id",
+  "toTable": "建築類型",
+  "toColumn": "building_type_id"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Threshold of Number of Transactions",
+  "mode": "import",
+  "source": {
+    "type": "calculated",
+    "expression": "GENERATESERIES(0, 100, 1)"
+  }
+}

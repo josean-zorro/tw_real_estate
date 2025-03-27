@@ -1,0 +1,15 @@
+{
+  "name": "交易坪數",
+  "lineageTag": "bcd4ad95-8ff5-4404-81e8-b3d6497980ec",
+  "changedProperties": [
+    {
+      "property": "Name"
+    }
+  ],
+  "annotations": [
+    {
+      "name": "PBI_ResultType",
+      "value": "Table"
+    }
+  ]
+}

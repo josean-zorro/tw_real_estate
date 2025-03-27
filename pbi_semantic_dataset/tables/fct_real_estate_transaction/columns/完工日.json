@@ -1,0 +1,29 @@
+{
+  "name": "完工日",
+  "dataType": "dateTime",
+  "sourceColumn": "完工日",
+  "formatString": "Long Date",
+  "lineageTag": "81833b0e-6299-4c96-8c98-c270b5f49185",
+  "summarizeBy": "none",
+  "variations": [
+    {
+      "name": "變化",
+      "relationship": "a8a067a0-bee4-45ac-9878-64d83ae09dec",
+      "defaultHierarchy": {
+        "table": "LocalDateTable_575b4160-0b99-4351-ac8f-87f163fcd0a8",
+        "hierarchy": "日期階層"
+      },
+      "isDefault": true
+    }
+  ],
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "UnderlyingDateTimeDataType",
+      "value": "Date"
+    }
+  ]
+}

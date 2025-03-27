@@ -1,0 +1,8 @@
+{
+  "name": "a8a067a0-bee4-45ac-9878-64d83ae09dec",
+  "fromTable": "fct_real_estate_transaction",
+  "fromColumn": "完工日",
+  "toTable": "LocalDateTable_575b4160-0b99-4351-ac8f-87f163fcd0a8",
+  "toColumn": "Date",
+  "joinOnDateBehavior": "datePartOnly"
+}

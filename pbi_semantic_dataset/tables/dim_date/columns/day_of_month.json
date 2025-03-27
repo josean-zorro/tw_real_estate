@@ -1,0 +1,19 @@
+{
+  "name": "day_of_month",
+  "dataType": "int64",
+  "sourceColumn": "day_of_month",
+  "formatString": "0",
+  "lineageTag": "05b5719c-51e6-4d2c-b18e-361c0759642b",
+  "summarizeBy": "sum",
+  "changedProperties": [
+    {
+      "property": "IsHidden"
+    }
+  ],
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "日期階層",
+  "lineageTag": "d6c55525-eff5-498f-917d-830faa95715d",
+  "levels": [
+    {
+      "name": "年",
+      "ordinal": 0,
+      "column": "年",
+      "lineageTag": "5505754b-0625-494d-8654-714fdf526957"
+    },
+    {
+      "name": "季",
+      "ordinal": 1,
+      "column": "季",
+      "lineageTag": "ce34702f-26b0-467c-856b-3be4b8ff17c3"
+    },
+    {
+      "name": "月",
+      "ordinal": 2,
+      "column": "月",
+      "lineageTag": "d6714a4c-d2d0-423e-9a8b-3eb52d6c9aa0"
+    },
+    {
+      "name": "日",
+      "ordinal": 3,
+      "column": "日",
+      "lineageTag": "c0884e8a-eabc-4860-8074-81d39a259b31"
+    }
+  ],
+  "annotations": [
+    {
+      "name": "TemplateId",
+      "value": "DateHierarchy"
+    }
+  ]
+}

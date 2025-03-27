@@ -1,0 +1,13 @@
+{
+  "name": "地址 / 地段",
+  "dataType": "string",
+  "sourceColumn": "地址 / 地段",
+  "lineageTag": "37c48dc3-bf16-405d-b5ef-5545b2d9afcc",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

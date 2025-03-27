@@ -1,0 +1,14 @@
+{
+  "name": "building_number_of_bedrooms",
+  "dataType": "int64",
+  "sourceColumn": "building_number_of_bedrooms",
+  "formatString": "0",
+  "lineageTag": "ffa2c3c9-005a-4c44-be0f-007736faa885",
+  "summarizeBy": "sum",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

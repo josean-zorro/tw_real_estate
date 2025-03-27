@@ -1,0 +1,30 @@
+{
+  "name": "Previous Month of Latest Month",
+  "expression": [
+    "",
+    "--- The definition of Last month depends on how plvr data updated, please refer to https://plvr.land.moi.gov.tw/DownloadOpenData ",
+    "VAR TodayDay = DAY(TODAY())  -- Get the current day of the month",
+    "",
+    "VAR LastMonthPreviousStart = ",
+    "IF(",
+    "    day(TODAY()) <= 20,",
+    "    DATE(YEAR(TODAY()), MONTH(TODAY()) - 3, 1),",
+    "    DATE(YEAR(TODAY()), MONTH(TODAY()) - 2, 1)",
+    "    )  -- First day of last month",
+    "VAR LastMonthPreviouEnd = IF(",
+    "    day(TODAY()) <= 20,",
+    "     EOMONTH(TODAY(), -3),",
+    "     EOMONTH(TODAY(), -2)",
+    "    )  ",
+    "",
+    "-- Calculate the average price in the selected date range",
+    "RETURN",
+    "    CALCULATE(",
+    "        SELECTEDMEASURE(),",
+    "        datesbetween(fct_real_estate_transaction[交易日],LastMonthPreviousStart, LastMonthPreviouEnd),",
+    "        ALL(dim_date[日期]) -- invariant to filters and slicders from dim_date",
+    "    )",
+    ""
+  ],
+  "ordinal": 5
+}

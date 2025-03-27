@@ -1,0 +1,17 @@
+{
+  "name": "net_exclusive_area_price_per_square_meter",
+  "dataType": "double",
+  "sourceColumn": "net_exclusive_area_price_per_square_meter",
+  "lineageTag": "538bc646-c317-4afe-b30f-c36362388116",
+  "summarizeBy": "sum",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "PBI_FormatHint",
+      "value": "{\"isGeneralNumber\":true}"
+    }
+  ]
+}

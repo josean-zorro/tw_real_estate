@@ -1,0 +1,26 @@
+{
+  "type": "calculatedTableColumn",
+  "name": "Threshold of Number of Transactions",
+  "dataType": "int64",
+  "isNameInferred": false,
+  "isDataTypeInferred": true,
+  "sourceColumn": "[Value]",
+  "formatString": "0",
+  "lineageTag": "c8a6f620-f13b-4cda-9d14-ca2481e9e41f",
+  "summarizeBy": "none",
+  "extendedProperties": [
+    {
+      "type": "json",
+      "name": "ParameterMetadata",
+      "value": {
+        "version": 0
+      }
+    }
+  ],
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "User"
+    }
+  ]
+}

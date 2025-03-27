@@ -1,0 +1,8 @@
+{
+  "name": "LocalDateTable_575b4160-0b99-4351-ac8f-87f163fcd0a8",
+  "mode": "import",
+  "source": {
+    "type": "calculated",
+    "expression": "Calendar(Date(Year(MIN('fct_real_estate_transaction'[完工日])), 1, 1), Date(Year(MAX('fct_real_estate_transaction'[完工日])), 12, 31))"
+  }
+}

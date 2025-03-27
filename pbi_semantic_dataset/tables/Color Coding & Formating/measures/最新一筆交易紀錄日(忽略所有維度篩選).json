@@ -1,0 +1,17 @@
+{
+  "name": "最新一筆交易紀錄日(忽略所有維度篩選)",
+  "expression": [
+    "",
+    "FORMAT(",
+    "    calculate(",
+    "        MAX(fct_real_estate_transaction[交易日]),",
+    "        ALL(dim_city_district),",
+    "        ALL(dim_date),",
+    "        ALL(dim_layout),",
+    "        ALL('交易類型'),",
+    "        ALL('建築類型')",
+    "        ),",
+    "    \"yyyy/mm/dd\")"
+  ],
+  "lineageTag": "6e425909-ef20-41d0-8c23-166fc274f31f"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "日期",
+  "dataType": "dateTime",
+  "isKey": true,
+  "sourceColumn": "日期",
+  "formatString": "Short Date",
+  "lineageTag": "5faa59f4-b55a-4edc-8d3e-0355a0824e68",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "UnderlyingDateTimeDataType",
+      "value": "Date"
+    }
+  ]
+}

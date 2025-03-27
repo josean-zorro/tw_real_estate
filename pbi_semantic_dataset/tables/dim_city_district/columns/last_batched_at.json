@@ -1,0 +1,25 @@
+{
+  "name": "last_batched_at",
+  "dataType": "dateTime",
+  "sourceColumn": "last_batched_at",
+  "formatString": "General Date",
+  "lineageTag": "caa124e5-40c6-4a19-a9ca-4813fc9ebf9e",
+  "summarizeBy": "none",
+  "variations": [
+    {
+      "name": "變化",
+      "relationship": "f73f89bb-fe60-4ce5-a03c-f34065437a05",
+      "defaultHierarchy": {
+        "table": "LocalDateTable_c405ae7e-7407-4fcc-bd1c-c17756efa907",
+        "hierarchy": "日期階層"
+      },
+      "isDefault": true
+    }
+  ],
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "建築類型",
+  "lineageTag": "67ae5368-35c2-4d94-8039-9f8297b133ec",
+  "annotations": [
+    {
+      "name": "PBI_ResultType",
+      "value": "Table"
+    },
+    {
+      "name": "PBI_NavigationStepName",
+      "value": "導覽"
+    }
+  ]
+}

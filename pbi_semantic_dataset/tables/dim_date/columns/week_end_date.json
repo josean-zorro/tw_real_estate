@@ -1,0 +1,18 @@
+{
+  "name": "week_end_date",
+  "dataType": "dateTime",
+  "sourceColumn": "week_end_date",
+  "formatString": "Long Date",
+  "lineageTag": "d05c2981-b060-436e-959c-ac7010a5fa4d",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "UnderlyingDateTimeDataType",
+      "value": "Date"
+    }
+  ]
+}

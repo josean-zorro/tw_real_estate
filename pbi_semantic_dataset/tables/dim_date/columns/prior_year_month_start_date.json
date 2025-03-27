@@ -1,0 +1,18 @@
+{
+  "name": "prior_year_month_start_date",
+  "dataType": "dateTime",
+  "sourceColumn": "prior_year_month_start_date",
+  "formatString": "Long Date",
+  "lineageTag": "a306fbea-77e6-4148-ac5f-a043c0664ec6",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "UnderlyingDateTimeDataType",
+      "value": "Date"
+    }
+  ]
+}

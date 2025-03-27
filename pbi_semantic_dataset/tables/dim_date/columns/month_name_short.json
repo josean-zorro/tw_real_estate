@@ -1,0 +1,19 @@
+{
+  "name": "month_name_short",
+  "dataType": "string",
+  "sourceColumn": "month_name_short",
+  "sortByColumn": "month_of_year",
+  "lineageTag": "6d6232ba-3a53-4a0e-afbc-6dc96bc44270",
+  "summarizeBy": "none",
+  "changedProperties": [
+    {
+      "property": "SortByColumn"
+    }
+  ],
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

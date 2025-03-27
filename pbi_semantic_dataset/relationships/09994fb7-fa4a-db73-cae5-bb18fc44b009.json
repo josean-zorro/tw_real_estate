@@ -1,0 +1,7 @@
+{
+  "name": "09994fb7-fa4a-db73-cae5-bb18fc44b009",
+  "fromTable": "fct_real_estate_transaction",
+  "fromColumn": "交易日",
+  "toTable": "dim_date",
+  "toColumn": "日期"
+}

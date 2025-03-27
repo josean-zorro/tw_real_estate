@@ -1,0 +1,13 @@
+{
+  "name": "交易標的",
+  "dataType": "string",
+  "sourceColumn": "交易標的",
+  "lineageTag": "13990408-530c-41d6-907f-7623101fd0c1",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

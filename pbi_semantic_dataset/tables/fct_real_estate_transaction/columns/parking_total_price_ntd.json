@@ -1,0 +1,14 @@
+{
+  "name": "parking_total_price_ntd",
+  "dataType": "double",
+  "sourceColumn": "parking_total_price_ntd",
+  "formatString": "0",
+  "lineageTag": "3ddd1e56-0c16-45f4-9557-aa33fc69a34e",
+  "summarizeBy": "sum",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

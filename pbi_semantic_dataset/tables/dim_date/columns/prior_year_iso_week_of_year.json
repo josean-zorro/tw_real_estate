@@ -1,0 +1,14 @@
+{
+  "name": "prior_year_iso_week_of_year",
+  "dataType": "int64",
+  "sourceColumn": "prior_year_iso_week_of_year",
+  "formatString": "0",
+  "lineageTag": "385fa150-2a21-473a-a736-9c510c24feb5",
+  "summarizeBy": "sum",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

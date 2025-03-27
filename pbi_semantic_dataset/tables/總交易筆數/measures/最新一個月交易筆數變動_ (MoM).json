@@ -1,0 +1,16 @@
+{
+  "name": "最新一個月交易筆數變動% (MoM)",
+  "expression": [
+    "if(",
+    "                isblank([最新一個月總交易筆數]),",
+    "                blank(),",
+    "                DIVIDE(",
+    "                    [最新一個月總交易筆數] - [最新一個月的前一月總交易筆數], ",
+    "                    [最新一個月的前一月總交易筆數], ",
+    "                    BLANK()",
+    "                ))"
+  ],
+  "formatString": "0.00%;-0.00%;0.00%",
+  "displayFolder": "Time Intelligence",
+  "lineageTag": "a5dad0d6-fb33-4c8f-b1a3-bb0373bfa73f"
+}

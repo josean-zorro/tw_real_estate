@@ -1,0 +1,7 @@
+{
+  "name": "48a1b6ec-d271-1b74-5612-cb93399ce593",
+  "fromTable": "fct_real_estate_transaction",
+  "fromColumn": "transaction_type",
+  "toTable": "交易類型",
+  "toColumn": "交易標的"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "8d913775-78d5-48d1-b2b6-471c90627509",
+  "fromTable": "dim_layout",
+  "fromColumn": "last_batched_at",
+  "toTable": "LocalDateTable_4029a5ee-543d-4b9d-85a4-e59a0bc4d682",
+  "toColumn": "Date",
+  "joinOnDateBehavior": "datePartOnly"
+}

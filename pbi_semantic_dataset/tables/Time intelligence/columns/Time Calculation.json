@@ -1,0 +1,14 @@
+{
+  "name": "Time Calculation",
+  "dataType": "string",
+  "sourceColumn": "Name",
+  "sortByColumn": "序數",
+  "lineageTag": "4b5cd093-4d70-49c4-a349-8f0b89f58746",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

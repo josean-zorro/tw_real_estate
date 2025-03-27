@@ -1,0 +1,17 @@
+{
+  "name": "前一月份平均每坪單價",
+  "expression": [
+    "CALCULATE(",
+    "    [平均每坪單價(萬)], ",
+    "    'Time intelligence'[Time Calculation] = \"MTD of Previous Month\"",
+    ")"
+  ],
+  "displayFolder": "Time Intelligence",
+  "lineageTag": "64f7382a-4224-4eba-b55a-f22902adc0b2",
+  "annotations": [
+    {
+      "name": "PBI_FormatHint",
+      "value": "{\"isGeneralNumber\":true}"
+    }
+  ]
+}

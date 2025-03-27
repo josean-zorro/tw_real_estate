@@ -1,0 +1,16 @@
+{
+  "name": "坪 / 平方公尺",
+  "kind": "m",
+  "expression": "0.3025 meta [IsParameterQuery=true, Type=\"Any\", IsParameterQueryRequired=true]",
+  "lineageTag": "334ebe58-529e-45ea-ab33-b3a5dbad99ea",
+  "annotations": [
+    {
+      "name": "PBI_NavigationStepName",
+      "value": "導覽"
+    },
+    {
+      "name": "PBI_ResultType",
+      "value": "Number"
+    }
+  ]
+}

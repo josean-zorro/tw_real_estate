@@ -1,0 +1,7 @@
+{
+  "name": "AutoDetected_1ff23041-b9d9-4ce6-a936-07f3a38159fd",
+  "fromTable": "fct_real_estate_transaction",
+  "fromColumn": "layout_id",
+  "toTable": "dim_layout",
+  "toColumn": "layout_id"
+}

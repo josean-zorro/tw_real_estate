@@ -1,0 +1,16 @@
+{
+  "name": "dim_layout",
+  "mode": "import",
+  "source": {
+    "type": "m",
+    "expression": [
+      "let",
+      "    來源 = GoogleBigQuery.Database(),",
+      "    #\"x-ripple-279214\" = 來源{[Name=\"x-ripple-279214\"]}[Data],",
+      "    house_and_renting_Schema = #\"x-ripple-279214\"{[Name=\"house_and_renting\",Kind=\"Schema\"]}[Data],",
+      "    dim_layout_Table = house_and_renting_Schema{[Name=\"dim_layout\",Kind=\"Table\"]}[Data]",
+      "in",
+      "    dim_layout_Table"
+    ]
+  }
+}

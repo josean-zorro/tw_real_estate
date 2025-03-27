@@ -1,0 +1,25 @@
+{
+  "name": "_sdc_batched_at",
+  "dataType": "dateTime",
+  "sourceColumn": "_sdc_batched_at",
+  "formatString": "General Date",
+  "lineageTag": "eb30a38e-64c8-4330-a4cd-1c8709920c69",
+  "summarizeBy": "none",
+  "variations": [
+    {
+      "name": "變化",
+      "relationship": "db92e641-77f0-4f11-ae6e-c28096c1d0b5",
+      "defaultHierarchy": {
+        "table": "LocalDateTable_f4f55231-d29c-4d0c-be9c-2d204f61df89",
+        "hierarchy": "日期階層"
+      },
+      "isDefault": true
+    }
+  ],
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

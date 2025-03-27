@@ -1,0 +1,11 @@
+{
+  "name": "dim_date",
+  "lineageTag": "5972d20f-8b07-43bd-98b1-b11aba6547bb",
+  "dataCategory": "Time",
+  "annotations": [
+    {
+      "name": "PBI_ResultType",
+      "value": "Table"
+    }
+  ]
+}

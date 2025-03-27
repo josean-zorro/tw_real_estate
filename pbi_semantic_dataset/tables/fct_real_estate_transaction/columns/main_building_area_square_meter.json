@@ -1,0 +1,17 @@
+{
+  "name": "main_building_area_square_meter",
+  "dataType": "double",
+  "sourceColumn": "main_building_area_square_meter",
+  "lineageTag": "206e4bfe-b11e-4979-a260-027b2bc390ae",
+  "summarizeBy": "sum",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "PBI_FormatHint",
+      "value": "{\"isGeneralNumber\":true}"
+    }
+  ]
+}

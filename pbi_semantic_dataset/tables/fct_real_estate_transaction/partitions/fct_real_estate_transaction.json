@@ -1,0 +1,28 @@
+{
+  "name": "fct_real_estate_transaction",
+  "mode": "import",
+  "source": {
+    "type": "m",
+    "expression": [
+      "let",
+      "",
+      "    來源 = GoogleBigQuery.Database(),",
+      "    #\"x-ripple-279214\" = 來源{[Name=\"x-ripple-279214\"]}[Data],",
+      "    house_and_renting_Schema = #\"x-ripple-279214\"{[Name=\"house_and_renting\",Kind=\"Schema\"]}[Data],",
+      "    fct_real_estate_transaction_Table = house_and_renting_Schema{[Name=\"fct_real_estate_transaction\",Kind=\"Table\"]}[Data],",
+      "    ",
+      "    已篩選資料列 = if PBI_ENV = \"dev\" then",
+      "        let",
+      "            // For development, filter rows where the transaction date (_sdc_batched_at) is within the past two years",
+      "            TwoYearsAgo = Date.AddYears(Date.From(DateTime.LocalNow()), -4)",
+      "        in",
+      "            Table.SelectRows(fct_real_estate_transaction_Table, each [transaction_date] >= TwoYearsAgo)",
+      "    else",
+      "        // In production, use your existing date range parameters (RangeStart and RangeEnd)",
+      "        Table.SelectRows(fct_real_estate_transaction_Table, each [_sdc_batched_at] >= RangeStart and [_sdc_batched_at] < RangeEnd),",
+      "    已重新命名資料行 = Table.RenameColumns(已篩選資料列,{{\"construction_completion_date\", \"完工日\"}, {\"transaction_date\", \"交易日\"}, {\"address_land_slot\", \"地址 / 地段\"}})",
+      "in",
+      "    已重新命名資料行"
+    ]
+  }
+}

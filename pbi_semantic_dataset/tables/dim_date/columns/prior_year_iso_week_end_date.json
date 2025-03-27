@@ -1,0 +1,18 @@
+{
+  "name": "prior_year_iso_week_end_date",
+  "dataType": "dateTime",
+  "sourceColumn": "prior_year_iso_week_end_date",
+  "formatString": "Long Date",
+  "lineageTag": "37f7a895-2d98-4f9b-8a07-309b03118360",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "UnderlyingDateTimeDataType",
+      "value": "Date"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "序數",
+  "dataType": "int64",
+  "sourceColumn": "Ordinal",
+  "formatString": "0",
+  "lineageTag": "5ca0a1ee-8e11-48d2-82d1-77b0ac935f60",
+  "summarizeBy": "sum",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "building_transferred_area_square_meter",
+  "dataType": "double",
+  "sourceColumn": "building_transferred_area_square_meter",
+  "lineageTag": "bb658dcf-66ba-438e-b3bf-df8bf8d20e02",
+  "summarizeBy": "sum",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "PBI_FormatHint",
+      "value": "{\"isGeneralNumber\":true}"
+    }
+  ]
+}

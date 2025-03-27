@@ -1,0 +1,17 @@
+{
+  "name": "balcony_area_square_meter",
+  "dataType": "double",
+  "sourceColumn": "balcony_area_square_meter",
+  "lineageTag": "16264680-757c-4763-9154-f00089e57734",
+  "summarizeBy": "sum",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "PBI_FormatHint",
+      "value": "{\"isGeneralNumber\":true}"
+    }
+  ]
+}

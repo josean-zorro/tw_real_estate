@@ -1,0 +1,16 @@
+{
+  "name": "RangeEnd",
+  "kind": "m",
+  "expression": "#datetime(2025, 6, 11, 0, 0, 0) meta [IsParameterQuery=true, Type=\"DateTime\", IsParameterQueryRequired=true]",
+  "lineageTag": "5bdde037-7d85-4f61-b548-db78310f8a1c",
+  "annotations": [
+    {
+      "name": "PBI_NavigationStepName",
+      "value": "導覽"
+    },
+    {
+      "name": "PBI_ResultType",
+      "value": "DateTime"
+    }
+  ]
+}

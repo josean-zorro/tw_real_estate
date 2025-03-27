@@ -1,0 +1,17 @@
+{
+  "name": "land_total_tranferred_area_square_meter",
+  "dataType": "double",
+  "sourceColumn": "land_total_tranferred_area_square_meter",
+  "lineageTag": "9ca848e8-13aa-4001-9caa-37de9b18ab21",
+  "summarizeBy": "sum",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "PBI_FormatHint",
+      "value": "{\"isGeneralNumber\":true}"
+    }
+  ]
+}

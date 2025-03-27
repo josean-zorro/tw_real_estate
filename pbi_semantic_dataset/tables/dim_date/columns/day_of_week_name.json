@@ -1,0 +1,19 @@
+{
+  "name": "day_of_week_name",
+  "dataType": "string",
+  "sourceColumn": "day_of_week_name",
+  "sortByColumn": "day_of_week_iso",
+  "lineageTag": "61d59787-37c8-4ef1-a0f4-4ac9360d70c1",
+  "summarizeBy": "none",
+  "changedProperties": [
+    {
+      "property": "SortByColumn"
+    }
+  ],
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

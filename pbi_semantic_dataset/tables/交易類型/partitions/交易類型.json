@@ -1,0 +1,17 @@
+{
+  "name": "交易類型",
+  "mode": "import",
+  "source": {
+    "type": "m",
+    "expression": [
+      "let",
+      "    來源 = GoogleBigQuery.Database(),",
+      "    #\"x-ripple-279214\" = 來源{[Name=\"x-ripple-279214\"]}[Data],",
+      "    house_and_renting_Schema = #\"x-ripple-279214\"{[Name=\"house_and_renting\",Kind=\"Schema\"]}[Data],",
+      "    dim_transaction_type_Table = house_and_renting_Schema{[Name=\"dim_transaction_type\",Kind=\"Table\"]}[Data],",
+      "    已重新命名資料行 = Table.RenameColumns(dim_transaction_type_Table,{{\"transaction_type\", \"交易標的\"}})",
+      "in",
+      "    已重新命名資料行"
+    ]
+  }
+}

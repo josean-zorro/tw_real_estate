@@ -1,0 +1,22 @@
+{
+  "name": "MTD MoM",
+  "expression": [
+    "",
+    "",
+    "var selectedmtd = CALCULATE(SELECTEDMEASURE(), DATESMTD(dim_date[日期]))",
+    "var selectedMtdInLastMonth = CALCULATE(SELECTEDMEASURE(), PREVIOUSMONTH(DATESMTD(dim_date[日期])))",
+    "",
+    "",
+    "",
+    "",
+    "RETURN",
+    "IF(",
+    "    isblank(selectedmtd),",
+    "    blank(),",
+    "    DIVIDE(",
+    "        selectedmtd - selectedMtdInLastMonth, selectedMtdInLastMonth, blank()",
+    "    )",
+    ")"
+  ],
+  "ordinal": 3
+}

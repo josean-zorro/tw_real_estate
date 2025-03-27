@@ -1,0 +1,13 @@
+{
+  "name": "building_type_id",
+  "dataType": "string",
+  "sourceColumn": "building_type_id",
+  "lineageTag": "9885a50f-8bcd-4f9c-b9fc-51cfbfa911b1",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

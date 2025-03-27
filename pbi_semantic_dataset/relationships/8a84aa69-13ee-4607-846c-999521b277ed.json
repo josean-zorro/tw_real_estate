@@ -1,0 +1,8 @@
+{
+  "name": "8a84aa69-13ee-4607-846c-999521b277ed",
+  "fromTable": "建築類型",
+  "fromColumn": "last_batched_at",
+  "toTable": "LocalDateTable_f7869651-a609-45bb-ac5d-e2c3c599cf12",
+  "toColumn": "Date",
+  "joinOnDateBehavior": "datePartOnly"
+}

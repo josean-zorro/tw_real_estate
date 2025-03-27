@@ -1,0 +1,13 @@
+{
+  "name": "city_district_surrogate_key",
+  "dataType": "string",
+  "sourceColumn": "city_district_surrogate_key",
+  "lineageTag": "2358c803-abaf-4220-a973-f9ca10eb0b2a",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

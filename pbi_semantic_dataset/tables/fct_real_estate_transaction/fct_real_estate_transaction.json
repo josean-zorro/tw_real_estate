@@ -1,0 +1,47 @@
+{
+  "name": "fct_real_estate_transaction",
+  "lineageTag": "c1422859-483a-4bc3-bdf8-a9359b794743",
+  "refreshPolicy": {
+    "policyType": "basic",
+    "rollingWindowGranularity": "year",
+    "rollingWindowPeriods": 3,
+    "incrementalGranularity": "month",
+    "incrementalPeriods": 4,
+    "pollingExpression": "let Max_sdc_batched_at = List.Max(fct_real_estate_transaction[_sdc_batched_at]), accountForNull = if Max_sdc_batched_at = null then #datetime(1901, 01, 01, 00, 00, 00) else Max_sdc_batched_at in accountForNull",
+    "sourceExpression": [
+      "let",
+      "",
+      "    來源 = GoogleBigQuery.Database(),",
+      "    #\"x-ripple-279214\" = 來源{[Name=\"x-ripple-279214\"]}[Data],",
+      "    house_and_renting_Schema = #\"x-ripple-279214\"{[Name=\"house_and_renting\",Kind=\"Schema\"]}[Data],",
+      "    fct_real_estate_transaction_Table = house_and_renting_Schema{[Name=\"fct_real_estate_transaction\",Kind=\"Table\"]}[Data],",
+      "    ",
+      "    已篩選資料列 = if PBI_ENV = \"dev\" then",
+      "        let",
+      "            // For development, filter rows where the transaction date (_sdc_batched_at) is within the past two years",
+      "            TwoYearsAgo = Date.AddYears(Date.From(DateTime.LocalNow()), -4)",
+      "        in",
+      "            Table.SelectRows(fct_real_estate_transaction_Table, each [transaction_date] >= TwoYearsAgo)",
+      "    else",
+      "        // In production, use your existing date range parameters (RangeStart and RangeEnd)",
+      "        Table.SelectRows(fct_real_estate_transaction_Table, each [_sdc_batched_at] >= RangeStart and [_sdc_batched_at] < RangeEnd),",
+      "    已重新命名資料行 = Table.RenameColumns(已篩選資料列,{{\"construction_completion_date\", \"完工日\"}, {\"transaction_date\", \"交易日\"}, {\"address_land_slot\", \"地址 / 地段\"}})",
+      "in",
+      "    已重新命名資料行"
+    ]
+  },
+  "annotations": [
+    {
+      "name": "PBI_ResultType",
+      "value": "Table"
+    },
+    {
+      "name": "PBI_NavigationStepName",
+      "value": "導覽"
+    },
+    {
+      "name": "PBI_IsMQueryFoldable",
+      "value": "True"
+    }
+  ]
+}

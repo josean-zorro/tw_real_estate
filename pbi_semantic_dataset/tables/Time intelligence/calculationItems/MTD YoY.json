@@ -1,0 +1,22 @@
+{
+  "name": "MTD YoY",
+  "expression": [
+    "",
+    "",
+    "var selectedmtd = CALCULATE(SELECTEDMEASURE(), DATESMTD(dim_date[日期]))",
+    "var selectedMtdInLastYear = CALCULATE(SELECTEDMEASURE(), SAMEPERIODLASTYEAR(DATESMTD(dim_date[日期])))",
+    "",
+    "",
+    "",
+    "",
+    "RETURN",
+    "IF(",
+    "    isblank(selectedmtd),",
+    "    blank(),",
+    "    DIVIDE(",
+    "        selectedmtd - selectedMtdInLastYear, selectedMtdInLastYear, blank()",
+    "    )",
+    ")"
+  ],
+  "ordinal": 7
+}

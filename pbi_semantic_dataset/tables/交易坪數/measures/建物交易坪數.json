@@ -1,0 +1,11 @@
+{
+  "name": "建物交易坪數",
+  "expression": "ROUND(SUM(fct_real_estate_transaction[main_building_area_square_meter])*max('Unit Conversion'[Square Meter to Ping (坪)]),2) ",
+  "lineageTag": "d4881a02-01e4-454d-8556-cc486143ca7e",
+  "annotations": [
+    {
+      "name": "PBI_FormatHint",
+      "value": "{\"isGeneralNumber\":true}"
+    }
+  ]
+}

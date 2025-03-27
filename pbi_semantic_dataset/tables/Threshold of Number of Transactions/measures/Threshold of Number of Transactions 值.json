@@ -1,0 +1,6 @@
+{
+  "name": "Threshold of Number of Transactions 值",
+  "expression": "SELECTEDVALUE('Threshold of Number of Transactions'[Threshold of Number of Transactions])",
+  "formatString": "0",
+  "lineageTag": "aa533235-3b00-4b7b-8d1d-256e5f6c0e36"
+}

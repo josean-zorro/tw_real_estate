@@ -1,0 +1,17 @@
+{
+  "name": "auxiliary_building_area_square_meter",
+  "dataType": "double",
+  "sourceColumn": "auxiliary_building_area_square_meter",
+  "lineageTag": "d070fe2c-def5-4cd0-92fe-0047b60b2440",
+  "summarizeBy": "sum",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "PBI_FormatHint",
+      "value": "{\"isGeneralNumber\":true}"
+    }
+  ]
+}

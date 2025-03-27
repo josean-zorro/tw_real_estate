@@ -1,0 +1,18 @@
+{
+  "name": "month_start_date",
+  "dataType": "dateTime",
+  "sourceColumn": "month_start_date",
+  "formatString": "Long Date",
+  "lineageTag": "8a8fe6b7-f84c-42a6-9b7c-7d77c283b0c3",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "UnderlyingDateTimeDataType",
+      "value": "Date"
+    }
+  ]
+}

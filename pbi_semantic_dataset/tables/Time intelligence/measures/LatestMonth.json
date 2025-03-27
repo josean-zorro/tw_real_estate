@@ -1,0 +1,25 @@
+{
+  "name": "LatestMonth",
+  "expression": [
+    "",
+    "VAR TodayDay = DAY(TODAY())  ",
+    "VAR LastMonthStart = IF(TodayDay <= 20, DATE(YEAR(TODAY()), MONTH(TODAY()) - 2, 1), DATE(YEAR(TODAY()), MONTH(TODAY()) - 1, 1))",
+    "VAR LastMonthEnd = IF(TodayDay <= 20, EOMONTH(TODAY(), -2), EOMONTH(TODAY(), -1))",
+    "",
+    "VAR LastMonthResult = ",
+    "    CALCULATE(",
+    "        MAX(dim_date[日期]),  -- Get the last date of the previous month",
+    "        DATESBETWEEN(dim_date[日期], LastMonthStart, LastMonthEnd),",
+    "        REMOVEFILTERS(dim_date)  -- Remove external filters",
+    "    )",
+    "",
+    "RETURN FORMAT(LastMonthResult, \"YYYY-MM\")  "
+  ],
+  "lineageTag": "dd1e1a60-db63-4df9-94ec-9ec0b9d5a00b",
+  "annotations": [
+    {
+      "name": "PBI_FormatHint",
+      "value": "{\"isGeneralNumber\":true}"
+    }
+  ]
+}

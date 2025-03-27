@@ -1,0 +1,18 @@
+{
+  "name": "縣市 (City / County) 階層",
+  "lineageTag": "fd2635de-ae85-4389-9293-d7a1831ea5cb",
+  "levels": [
+    {
+      "name": "縣市 (City / County)",
+      "ordinal": 0,
+      "column": "縣市 (City / County)",
+      "lineageTag": "f0e0767a-5652-4501-b58d-a55bcd8116cc"
+    },
+    {
+      "name": "鄉鎮市區",
+      "ordinal": 1,
+      "column": "鄉鎮市區",
+      "lineageTag": "689cd26e-6392-4a03-b6f5-23b1808e7262"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "dim_date",
+  "mode": "import",
+  "source": {
+    "type": "m",
+    "expression": [
+      "let",
+      "    來源 = GoogleBigQuery.Database(),",
+      "    #\"x-ripple-279214\" = 來源{[Name=\"x-ripple-279214\"]}[Data],",
+      "    house_and_renting_Schema = #\"x-ripple-279214\"{[Name=\"house_and_renting\",Kind=\"Schema\"]}[Data],",
+      "    dim_date_Table = house_and_renting_Schema{[Name=\"dim_date\",Kind=\"Table\"]}[Data],",
+      "    已重新命名資料行 = Table.RenameColumns(dim_date_Table,{{\"year_number\", \"年 (Year)\"}, {\"date_day\", \"日期\"}})",
+      "in",
+      "    已重新命名資料行"
+    ]
+  }
+}

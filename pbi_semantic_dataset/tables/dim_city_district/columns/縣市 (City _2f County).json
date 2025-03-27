@@ -1,0 +1,20 @@
+{
+  "name": "縣市 (City / County)",
+  "dataType": "string",
+  "sourceColumn": "縣市 (City / County)",
+  "sortByColumn": "city_id",
+  "lineageTag": "bd4a92b2-9bd7-4df1-8f4f-26aec9bbdbf2",
+  "dataCategory": "County",
+  "summarizeBy": "none",
+  "changedProperties": [
+    {
+      "property": "SortByColumn"
+    }
+  ],
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

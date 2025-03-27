@@ -1,0 +1,13 @@
+{
+  "name": "number_of_bedrooms_categorized",
+  "dataType": "string",
+  "sourceColumn": "number_of_bedrooms_categorized",
+  "lineageTag": "b3e15184-8682-4238-9f2f-ba0b3c9ba685",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

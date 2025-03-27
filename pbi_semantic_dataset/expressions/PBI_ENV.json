@@ -1,0 +1,16 @@
+{
+  "name": "PBI_ENV",
+  "kind": "m",
+  "expression": "\"prod\" meta [IsParameterQuery=true, Type=\"Any\", IsParameterQueryRequired=true]",
+  "lineageTag": "8865f9ad-1f0e-4f2e-ba51-78d62c1fc44c",
+  "annotations": [
+    {
+      "name": "PBI_NavigationStepName",
+      "value": "導覽"
+    },
+    {
+      "name": "PBI_ResultType",
+      "value": "Text"
+    }
+  ]
+}

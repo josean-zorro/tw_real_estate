@@ -1,0 +1,12 @@
+{
+  "name": "資料日期相關更新資訊",
+  "expression": "\"因實價登錄更新時間較晚，此儀錶板「最新一個月」指的是\" & [LatestMonth]",
+  "displayFolder": "Visual Specific - 每坪單價趨勢以及各行政區分析",
+  "lineageTag": "889554e6-d732-4373-80e7-30ca47bf347c",
+  "annotations": [
+    {
+      "name": "PBI_FormatHint",
+      "value": "{\"isGeneralNumber\":true}"
+    }
+  ]
+}

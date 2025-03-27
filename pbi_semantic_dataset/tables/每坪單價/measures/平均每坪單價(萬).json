@@ -1,0 +1,11 @@
+{
+  "name": "平均每坪單價(萬)",
+  "expression": "round(average(fct_real_estate_transaction[price_per_square_meter])/3052,2)",
+  "lineageTag": "6c681904-fdcd-467c-b9f6-9c6c2bcda0b7",
+  "annotations": [
+    {
+      "name": "PBI_FormatHint",
+      "value": "{\"isGeneralNumber\":true}"
+    }
+  ]
+}

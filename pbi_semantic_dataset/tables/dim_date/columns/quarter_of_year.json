@@ -1,0 +1,14 @@
+{
+  "name": "quarter_of_year",
+  "dataType": "int64",
+  "sourceColumn": "quarter_of_year",
+  "formatString": "0",
+  "lineageTag": "b22d970e-1942-4255-9d9a-866b9253f165",
+  "summarizeBy": "sum",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "quarter_start_date",
+  "dataType": "dateTime",
+  "sourceColumn": "quarter_start_date",
+  "formatString": "Long Date",
+  "lineageTag": "46e8b731-98c1-4016-9971-308bc1d2adfe",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "UnderlyingDateTimeDataType",
+      "value": "Date"
+    }
+  ]
+}

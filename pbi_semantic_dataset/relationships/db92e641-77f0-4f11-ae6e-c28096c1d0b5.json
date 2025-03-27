@@ -1,0 +1,8 @@
+{
+  "name": "db92e641-77f0-4f11-ae6e-c28096c1d0b5",
+  "fromTable": "fct_real_estate_transaction",
+  "fromColumn": "_sdc_batched_at",
+  "toTable": "LocalDateTable_f4f55231-d29c-4d0c-be9c-2d204f61df89",
+  "toColumn": "Date",
+  "joinOnDateBehavior": "datePartOnly"
+}

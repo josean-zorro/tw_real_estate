@@ -1,0 +1,17 @@
+{
+  "name": "dim_city_district",
+  "mode": "import",
+  "source": {
+    "type": "m",
+    "expression": [
+      "let",
+      "    來源 = GoogleBigQuery.Database(),",
+      "    #\"x-ripple-279214\" = 來源{[Name=\"x-ripple-279214\"]}[Data],",
+      "    house_and_renting_Schema = #\"x-ripple-279214\"{[Name=\"house_and_renting\",Kind=\"Schema\"]}[Data],",
+      "    dim_city_district_Table = house_and_renting_Schema{[Name=\"dim_city_district\",Kind=\"Table\"]}[Data],",
+      "    已重新命名資料行 = Table.RenameColumns(dim_city_district_Table,{{\"city_county\", \"縣市 (City / County)\"}, {\"district_township\", \"鄉鎮市區\"}, {\"city_district\", \"縣市及鄉鎮市區\"}})",
+      "in",
+      "    已重新命名資料行"
+    ]
+  }
+}

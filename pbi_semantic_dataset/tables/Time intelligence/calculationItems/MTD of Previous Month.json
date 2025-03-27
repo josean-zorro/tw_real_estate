@@ -1,0 +1,5 @@
+{
+  "name": "MTD of Previous Month",
+  "expression": "CALCULATE(SELECTEDMEASURE(),PREVIOUSMONTH(DATESMTD(dim_date[日期])))",
+  "ordinal": 2
+}

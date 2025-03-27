@@ -1,0 +1,14 @@
+{
+  "name": "縣市及鄉鎮市區",
+  "dataType": "string",
+  "sourceColumn": "縣市及鄉鎮市區",
+  "lineageTag": "ade59137-4403-465e-bc3f-4a7ef72cc62a",
+  "dataCategory": "City",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

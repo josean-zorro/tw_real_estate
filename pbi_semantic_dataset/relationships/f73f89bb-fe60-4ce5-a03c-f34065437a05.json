@@ -1,0 +1,8 @@
+{
+  "name": "f73f89bb-fe60-4ce5-a03c-f34065437a05",
+  "fromTable": "dim_city_district",
+  "fromColumn": "last_batched_at",
+  "toTable": "LocalDateTable_c405ae7e-7407-4fcc-bd1c-c17756efa907",
+  "toColumn": "Date",
+  "joinOnDateBehavior": "datePartOnly"
+}

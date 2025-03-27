@@ -1,0 +1,18 @@
+{
+  "name": "交易日",
+  "dataType": "dateTime",
+  "sourceColumn": "交易日",
+  "formatString": "Long Date",
+  "lineageTag": "ce09d61b-6917-4e2d-a5db-d8c0dfaa6ede",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "UnderlyingDateTimeDataType",
+      "value": "Date"
+    }
+  ]
+}

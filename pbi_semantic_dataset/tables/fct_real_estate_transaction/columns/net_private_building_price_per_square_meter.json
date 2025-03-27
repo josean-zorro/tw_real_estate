@@ -1,0 +1,17 @@
+{
+  "name": "net_private_building_price_per_square_meter",
+  "dataType": "double",
+  "sourceColumn": "net_private_building_price_per_square_meter",
+  "lineageTag": "55086167-372b-461a-8e20-14804c386ede",
+  "summarizeBy": "sum",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "PBI_FormatHint",
+      "value": "{\"isGeneralNumber\":true}"
+    }
+  ]
+}

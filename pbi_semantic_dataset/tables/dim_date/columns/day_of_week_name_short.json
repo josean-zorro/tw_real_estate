@@ -1,0 +1,13 @@
+{
+  "name": "day_of_week_name_short",
+  "dataType": "string",
+  "sourceColumn": "day_of_week_name_short",
+  "lineageTag": "a6e91f14-40f5-4390-9912-b963057548f7",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

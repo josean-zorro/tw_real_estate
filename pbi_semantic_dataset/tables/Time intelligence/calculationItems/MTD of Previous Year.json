@@ -1,0 +1,5 @@
+{
+  "name": "MTD of Previous Year",
+  "expression": "CALCULATE( SELECTEDMEASURE(), SAMEPERIODLASTYEAR(DATESMTD('dim_date'[日期])))",
+  "ordinal": 6
+}

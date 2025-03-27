@@ -1,0 +1,10 @@
+{
+  "name": "每坪單價",
+  "lineageTag": "222b217e-fc2b-40a0-a303-5b0ecaf28b5f",
+  "annotations": [
+    {
+      "name": "PBI_ResultType",
+      "value": "Table"
+    }
+  ]
+}

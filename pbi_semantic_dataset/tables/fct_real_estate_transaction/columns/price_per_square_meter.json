@@ -1,0 +1,14 @@
+{
+  "name": "price_per_square_meter",
+  "dataType": "double",
+  "sourceColumn": "price_per_square_meter",
+  "formatString": "0",
+  "lineageTag": "540df74a-18bb-4068-964b-7a09f8555228",
+  "summarizeBy": "sum",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}

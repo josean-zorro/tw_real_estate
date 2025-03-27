@@ -1,0 +1,18 @@
+{
+  "name": "prior_year_iso_week_start_date",
+  "dataType": "dateTime",
+  "sourceColumn": "prior_year_iso_week_start_date",
+  "formatString": "Long Date",
+  "lineageTag": "e2f7335d-11ec-421f-92c5-9e7a8efbb3c1",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "UnderlyingDateTimeDataType",
+      "value": "Date"
+    }
+  ]
+}

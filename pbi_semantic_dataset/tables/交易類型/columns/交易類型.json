@@ -1,0 +1,15 @@
+{
+  "type": "calculated",
+  "name": "交易類型",
+  "dataType": "string",
+  "isDataTypeInferred": true,
+  "expression": "\"不動產交易\" ",
+  "lineageTag": "9f757fc2-a6c6-499d-9699-d1b3cf4af419",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    }
+  ]
+}
