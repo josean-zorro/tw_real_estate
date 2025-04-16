@@ -32,7 +32,7 @@ def main():
     now = datetime.now()
     current_year = now.year
     current_season = (now.month - 1) // 3 + 1
-    last_year = current_year - 1 if current_season == 1 else current_year
+    year_of_last_quarter = current_year - 1 if current_season == 1 else current_year
     last_season = 4 if current_season == 1 else current_season
 
     if not incremental_run:
@@ -42,10 +42,10 @@ def main():
         start_season = 1
 
         print(
-            f"Crawling data from {start_year}-Q{start_season} to {last_year}-Q{last_season}..."
+            f"Crawling data from {start_year}-Q{start_season} to {year_of_last_quarter}-Q{last_season}..."
         )
         year, season = start_year, start_season
-        while (year, season) <= (last_year, last_season):
+        while (year, season) <= (year_of_last_quarter, last_season):
             plvr_historical_crawler(year, season, save_to_gcs)
             season += 1
             if season > 4:
@@ -54,7 +54,7 @@ def main():
             time.sleep(10)
     else:
         print("Existing data found. Crawling data for last season.")
-        plvr_historical_crawler(last_year, last_season, save_to_gcs=save_to_gcs)
+        plvr_historical_crawler(year_of_last_quarter, last_season, save_to_gcs=save_to_gcs)
     # Crawl new data if applicable
     print("Starting crawling for this period...")
     plvr_this_quarter_crawler(save_to_gcs=save_to_gcs)
