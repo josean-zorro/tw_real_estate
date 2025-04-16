@@ -34,17 +34,17 @@ plugins:
     config:
       tables:
       - path: gs://tw-real-estate
-        name: land_building_park_transaction
+        name: land_building_park_transaction # This will be table name in target (data warehouse).
         pattern: data/plvr/\d{4}Q[1-4]/[a-z]_lvr_land_a.csv
         start_date: '2017-05-01T00:00:00Z'
         format: csv
         key_properties: [serial_number]
-        #- path: gs://tw-real-estate
-        #name: transaction_build_information
-        #pattern: data/plvr/\d{4}Q[1-4]/[a-z]_lvr_land_a_build.csv
-        #start_date: '2017-05-01T00:00:00Z'
-        #format: csv
-        #key_properties: [serial_number]
+      - path: gs://tw-real-estate
+        name: presale_transaction
+        pattern: data/plvr/\d{4}Q[1-4]/[a-z]_lvr_land_b.csv
+        start_date: '2017-05-01T00:00:00Z'
+        format: csv
+        key_properties: [serial_number]
         #- path: gs://tw-real-estate
         #name: transaction_park_information
         #pattern: data/plvr/\d{4}Q[1-4]/[a-z]_lvr_land_a_park.csv
@@ -60,6 +60,7 @@ plugins:
 
     select:
     - land_building_park_transaction.*
+    - presale_transaction.*
   loaders:
   - name: target-csv
     variant: meltanolabs
