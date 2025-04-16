@@ -6,6 +6,8 @@ from datetime import date, timedelta
 import pandas as pd
 import requests
 from google.cloud import storage
+from zipfile import BadZipFile
+from requests.exceptions import RequestException
 
 
 def get_past_quarter_dates_ending_with_1():
@@ -57,46 +59,64 @@ def save_locally(local_path, filename, content):
 
 
 def plvr_historical_crawler(year, season, save_to_gcs=False):
-    # Tranlate to Taiwanese year
-    taiwan_year = year - 1911 if year > 1000 else year
-    url = f"https://plvr.land.moi.gov.tw//DownloadSeason?season={taiwan_year}S{season}&type=zip&fileName=lvr_landcsv.zip"
-    # download real estate zip content
-    response = requests.get(url)
+    try:
+        # Tranlate to Taiwanese year
+        taiwan_year = year - 1911 if year > 1000 else year
+        url = f"https://plvr.land.moi.gov.tw//DownloadSeason?season={taiwan_year}S{season}&type=zip&fileName=lvr_landcsv.zip"
+        
+        # download real estate zip content
+        try:
+            response = requests.get(url)
+            response.raise_for_status()  # Raise an exception for bad status codes
+        except RequestException as e:
+            print(f"Failed to download file: {str(e)}")
+            return
 
-    # Check if the request was successful
-    if response.status_code == 200:
-        # Create a ZipFile object from the response content
-        with zipfile.ZipFile(io.BytesIO(response.content)) as z:
-            # Iterate through each file in the zip
-            for file_info in z.infolist():
-                # Check if the file is a CSV
-                if file_info.filename.endswith(".csv"):
-                    # Extract the CSV file content
-                    with z.open(file_info) as csv_file:
-                        # Save the CSV file to disk
-                        content = csv_file.read().decode("utf-8")
-                        converted_content = full_to_half_width(content)
-                        # Remove first line
-                        converted_content = "\n".join(converted_content.split("\n")[1:])
-                        if save_to_gcs:
-                            # Save to GCS
-                            destination_blob_name = (
-                                f"data/plvr/{year}Q{season}/{file_info.filename}"
-                            )
-                            upload_to_gcs(
-                                "tw-real-estate",
-                                destination_blob_name,
-                                converted_content,
-                            )
-                        else:
-                            # Save locally
-                            local_path = f"data/plvr/{year}Q{season}"
-                            save_locally(
-                                local_path, file_info.filename, converted_content
-                            )
-    else:
-        print(f"Failed to download file: {response.status_code}")
-    response.close()
+        # Check if the request was successful
+        if response.status_code == 200:
+            try:
+                # Create a ZipFile object from the response content
+                with zipfile.ZipFile(io.BytesIO(response.content)) as z:
+                    # Iterate through each file in the zip
+                    for file_info in z.infolist():
+                        # Check if the file is a CSV
+                        if file_info.filename.endswith(".csv"):
+                            # Extract the CSV file content
+                            with z.open(file_info) as csv_file:
+                                # Save the CSV file to disk
+                                content = csv_file.read().decode("utf-8")
+                                converted_content = full_to_half_width(content)
+                                # Remove first line
+                                converted_content = "\n".join(converted_content.split("\n")[1:])
+                                if save_to_gcs:
+                                    # Save to GCS
+                                    destination_blob_name = (
+                                        f"data/plvr/{year}Q{season}/{file_info.filename}"
+                                    )
+                                    upload_to_gcs(
+                                        "tw-real-estate",
+                                        destination_blob_name,
+                                        converted_content,
+                                    )
+                                else:
+                                    # Save locally
+                                    local_path = f"data/plvr/{year}Q{season}"
+                                    save_locally(
+                                        local_path, file_info.filename, converted_content
+                                    )
+            except BadZipFile as e:
+                print(f"Error: The downloaded file is not a valid ZIP file. URL: {url}")
+                return
+            except Exception as e:
+                print(f"Error processing ZIP file: {str(e)}")
+                return
+        else:
+            print(f"Failed to download file: HTTP {response.status_code}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {str(e)}")
+    finally:
+        if 'response' in locals():
+            response.close()
 
 
 def plvr_this_quarter_crawler(save_to_gcs=False):
