@@ -1,0 +1,392 @@
+{
+  "streams": [
+    {
+      "tap_stream_id": "land_building_park_transaction",
+      "key_properties": [
+        "serial_number"
+      ],
+      "schema": {
+        "properties": {
+          "the_villages_and_towns_urban_district": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "transaction_sign": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "land_sector_position_building_sector_house_number_plate": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "land_shifting_total_area_square_meter": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "the_use_zoning_or_compiles_and_checks": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "the_nonmetropolis_land_use_district": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "nonmetropolis_land_use": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "transaction_year_month_and_day": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "transaction_pen_number": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "shifting_level": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "total_floor_number": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "building_state": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "main_use": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "main_building_materials": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "construction_to_complete_the_years": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "building_shifting_total_area": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "building_present_situation_pattern_room": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "building_present_situation_pattern_hall": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "building_present_situation_pattern_health": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "building_present_situation_pattern_compartmented": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "whether_there_is_manages_the_organization": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "total_price_ntd": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "the_unit_price_ntd_square_meter": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "the_berth_category": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "berth_shifting_total_area_square_meter": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "the_berth_total_price_ntd": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "the_note": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "serial_number": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "_smart_source_bucket": {
+            "type": "string"
+          },
+          "_smart_source_file": {
+            "type": "string"
+          },
+          "_smart_source_lineno": {
+            "type": "integer"
+          }
+        },
+        "selected": true,
+        "type": "object"
+      },
+      "stream": "land_building_park_transaction",
+      "metadata": []
+    },
+    {
+      "tap_stream_id": "presale_transaction",
+      "key_properties": [
+        "serial_number"
+      ],
+      "schema": {
+        "properties": {
+          "the_villages_and_towns_urban_district": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "transaction_sign": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "land_sector_position_building_sector_house_number_plate": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "land_shifting_total_area_square_meter": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "the_use_zoning_or_compiles_and_checks": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "the_nonmetropolis_land_use_district": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "nonmetropolis_land_use": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "transaction_year_month_and_day": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "transaction_pen_number": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "shifting_level": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "total_floor_number": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "building_state": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "main_use": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "main_building_materials": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "construction_to_complete_the_years": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "building_shifting_total_area": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "building_present_situation_pattern_room": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "building_present_situation_pattern_hall": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "building_present_situation_pattern_health": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "building_present_situation_pattern_compartmented": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "whether_there_is_manages_the_organization": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "total_price_ntd": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "the_unit_price_ntd_square_meter": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "the_berth_category": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "berth_shifting_total_area_square_meter": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "the_berth_total_price_ntd": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "the_note": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "serial_number": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "_smart_source_bucket": {
+            "type": "string"
+          },
+          "_smart_source_file": {
+            "type": "string"
+          },
+          "_smart_source_lineno": {
+            "type": "integer"
+          }
+        },
+        "selected": true,
+        "type": "object"
+      },
+      "stream": "presale_transaction",
+      "metadata": []
+    }
+  ]
+}

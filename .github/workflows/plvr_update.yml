@@ -47,7 +47,7 @@ jobs:
 
       # Run the crawler:web_crawler command only on the 1st, 11th, or 21st day of the month
       - name: Run plvr crawler (conditional)
-        if: steps.get_day.outputs.DAY_OF_MONTH == '1' || steps.get_day.outputs.DAY_OF_MONTH == '11' || steps.get_day.outputs.DAY_OF_MONTH == '21'
+        if: steps.get_day.outputs.DAY_OF_MONTH == '2' || steps.get_day.outputs.DAY_OF_MONTH == '12' || steps.get_day.outputs.DAY_OF_MONTH == '22'
         uses: ./
         env:
           TARGET_BIGQUERY_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
