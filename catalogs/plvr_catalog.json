@@ -634,6 +634,25 @@
               "string"
             ]
           },
+           "building_case": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+           "buildings": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+           "termination_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          
           "_smart_source_bucket": {
             "type": [
               "null",
