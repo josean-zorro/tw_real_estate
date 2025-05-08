@@ -18,7 +18,7 @@ multiline_newline = True
 apply_dbt_builtins = true
 load_macros_from_path = macros
 
-# My IDE haven't workfed for dbt template
+# Mason (Nvim plugin) hasn't workfed for dbt template
 #[sqlfluff:templater:dbt]
 #project_dir = /Users/kevinchien/tw_real_estate/transform
 #profile = meltano
