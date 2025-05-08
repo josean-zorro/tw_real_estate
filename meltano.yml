@@ -62,9 +62,6 @@ plugins:
     - land_building_park_transaction.*
     - presale_transaction.*
   loaders:
-  - name: target-csv
-    variant: meltanolabs
-    pip_url: git+https://github.com/MeltanoLabs/target-csv.git
   - name: target-jsonl
     variant: andyh1203
     pip_url: target-jsonl
